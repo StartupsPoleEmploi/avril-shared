@@ -5,7 +5,7 @@
   "author": "Team Avril",
   "dependencies": {
     "@trevoreyre/autocomplete-vue": "^2.1.1",
-    "algoliasearch": "^4.1.0",
+    "algoliasearch": "^3.35.1",
     "bulma": "^0.8.0",
     "debounce": "^1.2.0",
     "vue2-datepicker": "^3.4.1"
