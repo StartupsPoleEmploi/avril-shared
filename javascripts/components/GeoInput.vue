@@ -20,7 +20,7 @@
   import debounce from 'debounce';
   import algoliasearch from 'algoliasearch';
   import Autocomplete from '@trevoreyre/autocomplete-vue';
-  import '@trevoreyre/autocomplete-vue/dist/style.css';
+  // import '@trevoreyre/autocomplete-vue/dist/style.css';
   import {removeTags} from '~/utils/string';
   import {addressLabelify, algoliaToAddress} from '~/utils/geo';
 
