@@ -1,0 +1,12 @@
+{
+  "name": "avril-shared",
+  "version": "1.0.0",
+  "description": "Shared front-end resources among Avril projects",
+  "author": "Team Avril",
+  "dependencies": {
+    "@trevoreyre/autocomplete-vue": "^2.1.1",
+    "algoliasearch": "^4.1.0",
+    "bulma": "^0.8.0",
+    "debounce": "^1.2.0"
+  }
+}
