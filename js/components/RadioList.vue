@@ -100,3 +100,14 @@
     },
   }
 </script>
+
+<style lang="scss" scoped>
+  button.box {
+    cursor: pointer;
+    margin-bottom: 1rem;
+    width: 100%;
+    border: none;
+    text-align: left;
+    font-size: inherit;
+  }
+</style>
