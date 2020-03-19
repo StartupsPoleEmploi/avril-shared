@@ -22,7 +22,7 @@
 
 <script type="text/javascript">
 
-  import {capitalize} from '~/utils/string';
+  import {capitalize} from '../utils/string';
 
   const booleanOptions = [{
     label: 'Oui',

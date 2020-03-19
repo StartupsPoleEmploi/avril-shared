@@ -21,8 +21,8 @@
   import algoliasearch from 'algoliasearch';
   import Autocomplete from '@trevoreyre/autocomplete-vue';
   // import '@trevoreyre/autocomplete-vue/dist/style.css';
-  import {removeTags} from '~/utils/string';
-  import {addressLabelify, algoliaToAddress} from '~/utils/geo';
+  import {removeTags} from '../utils/string';
+  import {addressLabelify, algoliaToAddress} from '../utils/geo';
 
   const places = algoliasearch.initPlaces(
     process.env.NUXT_ALGOLIA_PLACES_APP_ID,

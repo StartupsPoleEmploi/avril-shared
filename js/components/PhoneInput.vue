@@ -7,7 +7,7 @@
 </template>
 
 <script type="text/javascript">
-  import {formatPhoneNumber} from '~/utils/string';
+  import {formatPhoneNumber} from '../utils/string';
 
   export default {
     computed: {
