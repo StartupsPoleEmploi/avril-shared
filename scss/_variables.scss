@@ -1,5 +1,16 @@
+
+// ##################################################
+// Avril variables
+// ##################################################
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
+@import url('https://use.typekit.net/zip3jhj.css');
+
 $white: white;
 $black: #46484e;
+$gray-bike: #8A8C92; // using by back button
+$blue-avril: #365460; // using by titles
+$gray-avril: #6C787D; // using by text
 
 $palette: (
   default: (
@@ -21,31 +32,49 @@ $palette: (
     background: #ffffa5,
     text: #41413c,
     title: #41413c
+  ),
+  red: (
+    background: #ffaccc,
+    text: #5a2036,
+    title: #5a2036
   )
 );
 
-@function palette($color: 'default', $type: 'text') {
-  @return map-get(map-get($palette, $color), $type);
-}
+$dashboard-navigation-width: 15rem;
 
-@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
-@import url('https://use.typekit.net/zip3jhj.css');
+// ##################################################
+// Bulma default variables
+// ##################################################
 
 $family-sans-serif: Nunito, sans-serif;
 $family-serif: ff-tisa-web-pro, serif;
-$title-family: $family-serif;
+$text: palette(default, text);
 
+// Bulma colors
+$primary:         palette(default, title);
+$primary-invert:  palette(blue, background);
+$link:            $primary;
+$link-invert:     findColorInvert($link);
+$info:            palette(blue, background);
+$info-invert:     palette(default, title);
+$success:         palette(green, background);
+$success-invert:  palette(green, title);
+$warning:         palette(yellow, background);
+$warning-invert:  palette(yellow, title);
+$danger:          palette(red, background);
+$danger-invert:   palette(red, title);
+
+$custom-colors: null;
+$colors: mergeColorMaps(("primary": ($primary, $primary-invert), "link": ($link, $link-invert), "info": ($info, $info-invert), "success": ($success, $success-invert), "warning": ($warning, $warning-invert), "danger": ($danger, $danger-invert)), $custom-colors);
+
+$navbar-height: 5.25rem;
+$navbar-padding-vertical: 1rem;
+$navbar-padding-horizontal: 2rem;
+
+$title-family: $family-serif;
 $text-color: palette(default, text);
 $title-color: palette(default, title);
 $scheme-main: palette(default, background);
-$input-background-color: $white;
-$footer-background-color: $white;
-$navbar-background-color: transparent;
-$title-line-height: 1.5;
-// $navbar-breakpoint: $radius-rounded;
-
-$primary: palette(blue, title);
-$info: palette(blue, background);
 
 $radius: 5px;
 
@@ -65,4 +94,3 @@ $radius: 5px;
     }
   }
 }
-
