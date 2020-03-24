@@ -78,6 +78,12 @@ $scheme-main: palette(default, background);
 
 $radius: 5px;
 
+// Bulma navigation
+$navbar-item-color: palette(default, title);
+$navbar-item-hover-color: black;
+$navbar-item-hover-background-color: #fff;
+$navbar-dropdown-border-top: none;
+
 @each $key, $value in $palette {
   .is-#{$key} {
     color: palette($key, text) !important;
