@@ -84,6 +84,10 @@ $navbar-item-hover-color: black;
 $navbar-item-hover-background-color: #fff;
 $navbar-dropdown-border-top: none;
 
+// Bulma menu-list
+$menu-item-hover-background-color: transparent;
+$menu-item-active-background-color: transparent;
+
 @each $key, $value in $palette {
   .is-#{$key} {
     color: palette($key, text) !important;
