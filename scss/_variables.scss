@@ -2,6 +2,7 @@
 // ##################################################
 // Avril variables
 // ##################################################
+
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
 @import url('https://use.typekit.net/zip3jhj.css');
@@ -39,6 +40,10 @@ $palette: (
     title: #5a2036
   )
 );
+
+@function palette($color: 'default', $type: 'text') {
+  @return map-get(map-get($palette, $color), $type);
+}
 
 $dashboard-navigation-width: 15rem;
 
