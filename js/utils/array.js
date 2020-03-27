@@ -4,3 +4,10 @@ export const first = array => {
 export const last = array => {
   return array[array.length - 1];
 };
+export const chunk = (array, perChunk) => {
+  return array.reduce((result, elem, i) => {
+     const ch = Math.floor(i/perChunk);
+     result[ch] = [].concat((result[ch]||[]), elem);
+     return result;
+  }, []);
+};
