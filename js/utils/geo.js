@@ -33,6 +33,7 @@ export const algoliaToAddress = (type, result) => {
       country_code: result.country_code,
       lat: result._geoloc.lat,
       lng: result._geoloc.lng,
+      postalCode: (result.postcode || [])[0],
     }
   }
 }
