@@ -20,3 +20,16 @@ export const deepMerge = (...objects) => {
     return prev;
   }, {});
 }
+
+export const partition = (object, func) => {
+  return Object.keys(object).reduce((results, k) => {
+    const partitionKey = func(object[k], k).toString();
+    return {
+      ...results,
+      ...{[partitionKey]: {
+        ...(results[partitionKey] || {}),
+        ...{[partitionKey]: object[k]}
+      }}
+    }
+  }, {})
+}
