@@ -28,7 +28,7 @@ export const partition = (object, func) => {
       ...results,
       ...{[partitionKey]: {
         ...(results[partitionKey] || {}),
-        ...{[partitionKey]: object[k]}
+        ...{[k]: object[k]}
       }}
     }
   }, {})
