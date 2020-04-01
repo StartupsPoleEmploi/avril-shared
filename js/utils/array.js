@@ -11,3 +11,6 @@ export const chunk = (array, perChunk) => {
      return result;
   }, []);
 };
+export const include = (array, elem) => {
+  return array.indexOf(elem) > -1;
+}
