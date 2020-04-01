@@ -2,6 +2,8 @@ import {last} from '../utils/array';
 
 export const uuid = () =>  (Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15));
 
+export const singularize = word => word.replace(/s$/, '');
+
 export const pluralize = (first, second) => {
   const number = typeof first === 'number' ? first : second;
   const word = typeof first === 'number' ? second : first;
