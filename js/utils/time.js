@@ -34,3 +34,9 @@ export const parseISODate = date => {
     return parseISO(date);
   }
 }
+
+export const parseAndFormat = date => {
+  if (date) {
+    return formatDate(parseISODate(date));
+  }
+}
