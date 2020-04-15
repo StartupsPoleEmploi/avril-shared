@@ -3,7 +3,7 @@ import addDays from 'date-fns/addDays';
 import parseISO from 'date-fns/parseISO';
 import formatISO from 'date-fns/formatISO';
 import format from 'date-fns/format';
-import isSameDay from 'date-fns/is_same_day';
+import isSameDay from 'date-fns/isSameDay';
 
 export const dateFormat = 'dd/MM/yyyy';
 export const hourFormat = 'hh:mm';
