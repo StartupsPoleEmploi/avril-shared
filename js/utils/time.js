@@ -6,7 +6,7 @@ import format from 'date-fns/format';
 import isSameDay from 'date-fns/isSameDay';
 
 export const dateFormat = 'dd/MM/yyyy';
-export const hourFormat = 'HH:mm';
+export const hourFormat = 'HHhmm';
 export const dateTimeFormat = `${dateFormat} ${hourFormat}`;
 
 export const workedDays = period => {
