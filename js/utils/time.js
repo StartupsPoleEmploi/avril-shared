@@ -6,7 +6,7 @@ import format from 'date-fns/format';
 import isSameDay from 'date-fns/isSameDay';
 
 export const dateFormat = 'dd/MM/yyyy';
-export const hourFormat = 'hh:mm';
+export const hourFormat = 'HH:mm';
 export const dateTimeFormat = `${dateFormat} ${hourFormat}`;
 
 export const workedDays = period => {
@@ -30,7 +30,7 @@ export const formatDate = date => {
 
 export const formatInterval = (fromDate, toDate) => {
   if (isSameDay(fromDate, toDate)) {
-    const fromDateString = format(fromDate, `${dateFormat} de ${hourFormat}`);
+    const fromDateString = `${format(fromDate, dateFormat)} de ${format(fromDate, hourFormat)}`;
     return `le ${fromDateString} à ${format(toDate, hourFormat)}`
   }
   return `du ${format(fromDate, dateTimeFormat)} au ${format(toDate, dateTimeFormat)}`
