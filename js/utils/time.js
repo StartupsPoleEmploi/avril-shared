@@ -3,6 +3,11 @@ import addDays from 'date-fns/addDays';
 import parseISO from 'date-fns/parseISO';
 import formatISO from 'date-fns/formatISO';
 import format from 'date-fns/format';
+import isSameDay from 'date-fns/is_same_day';
+
+export const dateFormat = 'dd/MM/yyyy';
+export const hourFormat = 'hh:mm';
+export const dateTimeFormat = `${dateFormat} ${hourFormat}`;
 
 export const workedDays = period => {
   return differenceInBusinessDays((period.end ? addDays(period.end, 1) : new Date()), period.start)
@@ -19,8 +24,16 @@ export const isMoreThanOneWeek = period => {
 
 export const formatDate = date => {
   if (date) {
-    return format(date, 'dd/MM/yyyy');
+    return format(date, dateFormat);
   }
+}
+
+export const formatInterval = (fromDate, toDate) => {
+  if (isSameDay(fromDate, toDate)) {
+    const fromDateString = format(fromDate, `${dateFormat} de ${hourFormat}`);
+    return `le ${fromDateString} à ${format(toDate, hourFormat)}`
+  }
+  return `du ${format(fromDate, dateTimeFormat)} au ${format(toDate, dateTimeFormat)}`
 }
 
 export const formatISODate = (date, representation='date') => {
