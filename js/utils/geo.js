@@ -23,14 +23,14 @@ export const algoliaToAddress = (type, result) => {
   } else if (type == 'country') {
     return {
       country: result.locale_names[0],
-      country_code: result.country_code.toUpperCase(),
+      countryCode: result.country_code.toUpperCase(),
     }
   } else {
     return {
       city: result.locale_names[0],
       county: countyWithNumber(result),
       country: result.country,
-      country_code: result.country_code,
+      countryCode: result.country_code,
       lat: result._geoloc.lat,
       lng: result._geoloc.lng,
       postalCode: (result.postcode || [])[0],
