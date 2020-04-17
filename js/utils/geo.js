@@ -45,5 +45,5 @@ export const addressLabelify = address => {
   if (address.county) return `${address.city}, ${address.county}, ${address.country}`;
   if (address.city && address.country) return `${address.city}, ${address.country}`;
   if (address.city) return `${address.city}`;
-  return `${address.country} (${address.country_code})`
+  return `${address.country} (${address.countryCode})`
 }
