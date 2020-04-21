@@ -26,6 +26,7 @@ export const fetchApi = async (graphQLQuery, optionalContext) => {
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
+      'X-auth': get(optionalContext, 'env.serverAuthKey'),
       ...(optionalContext ? {cookie: get(optionalContext, 'req.headers.cookie')} : {}),
     },
     body: JSON.stringify(graphQLQuery)
