@@ -9,6 +9,7 @@
     "bulma": "^0.8.0",
     "date-fns": "^2.11.0",
     "debounce": "^1.2.0",
+    "lodash.get": "^4.4.2",
     "vue2-datepicker": "^3.4.1"
   }
 }

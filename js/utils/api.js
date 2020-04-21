@@ -1,9 +1,9 @@
 import get from 'lodash.get';
-import {isArray, isString} from 'avril/js/utils/boolean';
-import {last, include} from 'avril/js/utils/array';
-import {singularize, capitalize} from 'avril/js/utils/string';
-import {objectToQueryString} from 'avril/js/utils/url';
-import {partition} from 'avril/js/utils/object';
+import {isArray, isString} from './boolean';
+import {last, include} from './array';
+import {singularize, capitalize} from './string';
+import {objectToQueryString} from './url';
+import {partition} from './object';
 
 import shapes from '../constants/apiShapes';
 
