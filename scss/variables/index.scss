@@ -1,0 +1,34 @@
+@import 'fonts';
+
+@import '~bulma/sass/utilities/all';
+
+@import 'colors';
+
+$dashboard-navigation-width: 15rem;
+$title-line-height: 1.5;
+$radius: 6px;
+
+$navbar-item-color: palette(default, title);
+$navbar-item-hover-color: $black;
+$navbar-item-hover-background-color: $white;
+$navbar-dropdown-border-top: none;
+$navbar-height: 5.25rem;
+$navbar-padding-vertical: 1rem;
+$navbar-padding-horizontal: 2rem;
+
+@each $key, $value in $palette {
+  .is-#{$key} {
+    color: palette($key, text) !important;
+    background: palette($key, background) !important;
+
+    &.button {
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    .title {
+      color: palette($key, title) !important;
+    }
+  }
+}

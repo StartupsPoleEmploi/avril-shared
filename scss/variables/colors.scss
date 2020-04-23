@@ -1,13 +1,3 @@
-$family-sans-serif: Nunito, sans-serif;
-$family-serif: ff-tisa-web-pro, serif;
-$title-family: $family-serif;
-
-@import '~bulma/sass/utilities/all';
-
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
-@import url('https://use.typekit.net/zip3jhj.css');
-
 $white: white;
 $black: #46484e;
 $gray-bike: #8A8C92; // using by back button
@@ -46,9 +36,6 @@ $palette: (
   @return map-get(map-get($palette, $color), $type);
 }
 
-$dashboard-navigation-width: 15rem;
-
-// Bulma colors
 $primary:         palette(default, title);
 $primary-invert:  palette(blue, background);
 $link:            $primary;
@@ -71,32 +58,3 @@ $scheme-main: palette(default, background);
 $input-background-color: $white;
 $footer-background-color: $white;
 $navbar-background-color: transparent;
-
-$title-line-height: 1.5;
-
-$radius: 6px;
-
-$navbar-item-color: palette(default, title);
-$navbar-item-hover-color: $black;
-$navbar-item-hover-background-color: $white;
-$navbar-dropdown-border-top: none;
-$navbar-height: 5.25rem;
-$navbar-padding-vertical: 1rem;
-$navbar-padding-horizontal: 2rem;
-
-@each $key, $value in $palette {
-  .is-#{$key} {
-    color: palette($key, text) !important;
-    background: palette($key, background) !important;
-
-    &.button {
-      &:hover {
-        opacity: 0.8;
-      }
-    }
-
-    .title {
-      color: palette($key, title) !important;
-    }
-  }
-}
