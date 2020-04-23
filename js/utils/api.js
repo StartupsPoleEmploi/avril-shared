@@ -2,7 +2,6 @@ import get from 'lodash.get';
 import {isArray, isString} from './boolean';
 import {last, include} from './array';
 import {singularize, capitalize} from './string';
-import {objectToQueryString} from './url';
 import {partition} from './object';
 
 import shapes from '../constants/apiShapes';
