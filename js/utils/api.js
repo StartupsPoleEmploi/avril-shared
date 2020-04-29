@@ -90,7 +90,7 @@ export const queryApi = async (queryInfos, optionalContext) => {
 
 export const mutateApi = async ({name, type, params}) => {
 
-  const query = `mutation ${buildQuery(name, type, {input: params})}`;
+  const query = `mutation ${buildQuery(name, type, params)}`;
 
   const jsonData = await fetchApi({query});
   if (jsonData.data) {
