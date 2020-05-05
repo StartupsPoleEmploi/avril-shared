@@ -37,7 +37,7 @@
     },
     methods: {
       search: function(input) {
-        if (input && input.replace(/[0-9/s]/g, '').length >= 3) {
+        if (input && input.replace(/[/s]/g, '').length >= 3) {
           return new Promise((resolve, reject) => {
             places.search({
               language: 'fr',
