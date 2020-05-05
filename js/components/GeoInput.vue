@@ -43,7 +43,7 @@
               language: 'fr',
               query: input,
               type: this.type,
-              countries: this.countries.split(''),
+              countries: this.countries.split(' '),
             }, function(err, res) {
               if (err || !res) {
                 reject(err);
