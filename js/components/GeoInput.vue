@@ -43,6 +43,7 @@
               language: 'fr',
               query: input,
               type: this.type,
+              countries: this.countries.split(''),
             }, function(err, res) {
               if (err || !res) {
                 reject(err);
@@ -80,6 +81,10 @@
       type: {
         type: String,
         default: 'address',
+      }
+      countries: {
+        type: String,
+        default: '',
       }
     },
   }
