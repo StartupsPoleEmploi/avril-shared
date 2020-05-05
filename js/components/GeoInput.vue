@@ -81,11 +81,11 @@
       type: {
         type: String,
         default: 'address',
-      }
+      },
       countries: {
         type: String,
         default: '',
-      }
+      },
     },
   }
 </script>
