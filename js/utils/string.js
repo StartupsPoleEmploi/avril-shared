@@ -31,3 +31,9 @@ export const formatPhoneNumber = value => {
   }
   return matches.slice(0, 5).join(' ');
 };
+
+export const startsWith = (string, start) => string.indexOf(start) === 0;
+export const startsWithNoCase = (string, start) => startsWith(string.toLowerCase(), start.toLowerCase());
+
+export const prepend = (string, prefix) => `${prefix}${string}`;
+export const append = (string, suffix) => `${string}${suffix}`;
