@@ -72,8 +72,7 @@ export const fetchApi = context => async query => {
     return jsonData;
   } else {
     get(jsonData, 'error.code') === 401 &&
-    universalRedirect(context)(get(jsonData, 'error.redirect_to')) ||
-    throw jsonData;
+    universalRedirect(context)(get(jsonData, 'error.redirect_to')) || (throw jsonData);
   }
 }
 
