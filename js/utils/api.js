@@ -27,9 +27,11 @@ const universalFetch = context => async (url, options) => {
       env: {
         serverToPhoenixUrl
       },
-      headers: {
-        cookie,
-      },
+      req: {
+        headers: {
+          cookie,
+        },
+      }
     } = context;
     url = startsWithNoCase(url, 'http') ? url : prepend(url, serverToPhoenixUrl);
 
