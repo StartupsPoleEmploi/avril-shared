@@ -61,8 +61,8 @@ export const fetchApi = context => async query => {
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-      'X-auth': get(optionalContext, 'env.serverAuthKey'),
-      'X-hash': get(optionalContext, 'req.query.hash'),
+      'X-auth': get(context, 'env.serverAuthKey'),
+      'X-hash': get(context, 'req.query.hash'),
     },
     body: JSON.stringify({query})
   });
