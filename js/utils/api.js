@@ -46,10 +46,15 @@ const universalFetch = context => async (url, options) => {
     console.log(result.headers.raw()['set-cookie']);
 
     if (!context.res.headersSent){
-      const sessionCookie = (result.headers.raw()['set-cookie'] || []).find(cookie => cookie.indexOf('_vae_key') === 0)
-      console.log(sessionCookie);
-      context.res.set('set-cookie', sessionCookie);
-      console.log('coucou', context.res.get('set-cookie'))
+      (result.headers.raw()['set-cookie'] || []).forEach(cookie => {
+        context.res.set('set-cookie', sessionCookie);
+      });
+      // const sessionCookie = (result.headers.raw()['set-cookie'] || []).find(cookie => cookie.indexOf('_vae_key') === 0)
+      // console.log(sessionCookie);
+      // if (sessionCookie) {
+      //   context.res.set('set-cookie', sessionCookie);
+      // }
+      // console.log('coucou', context.res.get('set-cookie'))
     }
     return result
   }
