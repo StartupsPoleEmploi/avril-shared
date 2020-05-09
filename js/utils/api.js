@@ -35,13 +35,18 @@ const universalFetch = context => async (url, options) => {
     } = context;
     url = startsWithNoCase(url, 'http') ? url : prepend(url, serverToPhoenixUrl);
 
-    return await fetch(url, {
+    const result = await fetch(url, {
       ...options,
       headers: {
         cookie,
         ...get(options, 'headers', {}),
       }
-    })
+    });
+    console.log(result.headers);
+    console.log(result.headers['set-cookie']);
+
+    context.res.set('set-cookie', result.headers['set-cookie'])
+    return result
   }
 }
 
@@ -70,6 +75,7 @@ export const fetchApi = context => async query => {
     },
     body: JSON.stringify({query})
   });
+
   const jsonData = await result.json();
 
   if (result.ok) {
