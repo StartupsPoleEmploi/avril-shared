@@ -46,9 +46,9 @@ const universalFetch = context => async (url, options) => {
     console.log(result.headers.raw()['set-cookie']);
 
     if (!context.res.headersSent){
-      (result.headers.raw()['set-cookie'] || []).forEach(cookie => {
-        context.res.set('set-cookie', cookie);
-      })
+      const sessionCookie = (result.headers.raw()['set-cookie'] || []).find(cookie => cookie.indexOf('_vae_key') === 0)
+      context.res.header('set-cookie', sessionCookie);
+      console.log('coucou', context.res.header('set-cookie'))
     }
     return result
   }
