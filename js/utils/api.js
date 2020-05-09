@@ -48,7 +48,6 @@ const universalFetch = context => async (url, options) => {
 const universalRedirect = context => to => {
   if (!to) return false;
   if (context) {
-    console.log('Redirecting with context. Are headersSent ?', context.res.headersSent)
     if (!context.res.headersSent){
       context.redirect(to);
     }
