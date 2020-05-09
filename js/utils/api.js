@@ -43,7 +43,7 @@ const universalFetch = context => async (url, options) => {
       }
     });
     console.log(result.headers);
-    console.log(res.headers.raw()['set-cookie']);
+    console.log(result.headers.raw()['set-cookie']);
 
     if (!context.res.headersSent){
       result.headers.raw()['set-cookie'].forEach(cookie => {
