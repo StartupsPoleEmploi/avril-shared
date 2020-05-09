@@ -48,7 +48,9 @@ const universalFetch = context => async (url, options) => {
 const universalRedirect = context => to => {
   if (!to) return false;
   if (context) {
-    context.redirect(to);
+    if (!context.res.headerSent){
+      context.redirect(to);
+    }
     return true;
   } else if (process.client) {
     window.location.replace(to);
@@ -77,6 +79,7 @@ export const fetchApi = context => async query => {
       get(jsonData, 'error.code') === 401 &&
       universalRedirect(context)(get(jsonData, 'error.redirect_to'))
     if (!redirected) {
+      console.error('API query failed without redirection', jsonData)
       throw(jsonData);
     }
   }
