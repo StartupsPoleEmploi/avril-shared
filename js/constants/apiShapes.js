@@ -57,6 +57,13 @@ export default {
       }
     }
   `,
+  resume: `
+    {
+      id
+      filename
+      url
+    }
+  `,
   get application() {
     return `
       {
@@ -65,6 +72,7 @@ export default {
           insertedAt
           completedAt
         }
+        resumes ${this.resume}
         bookletHash
         insertedAt
         submittedAt

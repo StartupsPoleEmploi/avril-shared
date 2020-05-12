@@ -1,5 +1,5 @@
 import get from 'lodash.get';
-import {isArray, isString} from './boolean';
+import {isArray, isString, isObject} from './boolean';
 import {last, include} from './array';
 import {singularize, capitalize, startsWithNoCase, prepend} from './string';
 import {partition} from './object';
@@ -14,8 +14,22 @@ const paramsToString = params => {
     .replace(/}$/, ')')
 }
 
-const buildQuery = (name, type, params) => {
-  return `{ ${name}${paramsToString(params)} ${shapes[type]} }`
+const buildQuery = (name, objectType, params) => {
+  return `{ ${name}${paramsToString(params)} ${shapes[objectType]} }`
+}
+
+const buildMutation = (name, objectType, params) => {
+  return `mutation ${buildQuery(name, objectType, params)}`
+}
+
+const buildJSONBody = query => JSON.stringify({query})
+
+const buildMultipartBody = (query, file) => {
+  const formData = new FormData();
+  formData.append('query', query);
+  formData.append('file', file);
+
+  return formData;
 }
 
 const universalFetch = context => async (url, options) => {
@@ -65,16 +79,16 @@ const universalRedirect = context => to => {
   return false;
 }
 
-export const fetchApi = context => async query => {
+export const fetchApi = context => async body => {
   const result = await universalFetch(context)('/api/v2', {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
-      'Content-Type': 'application/json',
+      // 'Content-Type': 'application/json',
       'X-auth': get(context, 'env.serverAuthKey'),
       'X-hash': get(context, 'req.query.hash'),
     },
-    body: JSON.stringify({query})
+    body,
   });
 
   const jsonData = await result.json();
@@ -96,15 +110,21 @@ export const queryApiWithContext = context => async queryInfos => {
   const {name, type, params} = isString(queryInfos) ? {name: queryInfos} : queryInfos;
   const query = buildQuery(name, type || singularize(name), params) ;
 
-  const jsonData = await fetchApi(context)(query);
+  const jsonData = await fetchApi(context)(buildJSONBody(query));
   return get(jsonData, `data.${name}`);
 }
 
 export const queryApi = queryApiWithContext(null);
 
 export const mutateApi = async ({name, type, params}) => {
-  const query = `mutation ${buildQuery(name, type, params)}`;
+  const query = buildMutation(name, type, params);
 
-  const jsonData = await fetchApi(null)(query);
+  const jsonData = await fetchApi(null)(buildJSONBody(query));
+  return get(jsonData, `data.${name}`);
+}
+
+export const mutateApiMultipart = async ({name, type, params, file}) => {
+
+  const jsonData = await fetchApi(null)(buildMultipartBody(buildMutation(name, type, params), file));
   return get(jsonData, `data.${name}`);
 }
