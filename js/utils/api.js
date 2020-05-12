@@ -131,7 +131,7 @@ export const mutateApi = async ({name, type, params}) => {
   return respondApiData(name)(jsonData);
 }
 
-export const mutateApiMultipart = async ({name, type, params, file}) => {
+export const mutateApiMultipart = async ({name, type, params}, file) => {
   const query = buildMutation(name, type, params);
 
   const jsonData = await fetchApi(null)(buildMultipartBody(query, file));
