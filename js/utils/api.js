@@ -1,7 +1,7 @@
 import get from 'lodash.get';
 import {isArray, isString, isObject} from './boolean';
 import {last, include} from './array';
-import {filterBlankValues} from './object';
+import {rejectBlankValues} from './object';
 import {singularize, capitalize, startsWithNoCase, prepend} from './string';
 import {partition} from './object';
 
@@ -86,7 +86,7 @@ const universalRedirect = context => to => {
 export const fetchApi = context => async body => {
   const result = await universalFetch(context)('/api/v2', {
     method: 'POST',
-    headers: filterBlankValues({
+    headers: rejectBlankValues({
       'Accept': 'application/json',
       'Content-Type': isString(body) ? 'application/json' : null,
       'X-auth': get(context, 'env.serverAuthKey'),

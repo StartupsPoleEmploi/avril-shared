@@ -1,6 +1,6 @@
 import {isObject, isBlank} from './boolean';
 
-export const filterBlankValues = object => Object.fromEntries(Object.entries(object).filter(([k, v]) => isBlank(v)))
+export const rejectBlankValues = object => Object.fromEntries(Object.entries(object).filter(([k, v]) => !isBlank(v)))
 
 export const deepMerge = (...objects) => {
   return objects.reduce((prev, obj) => {
