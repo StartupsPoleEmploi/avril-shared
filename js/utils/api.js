@@ -1,6 +1,7 @@
 import get from 'lodash.get';
 import {isArray, isString, isObject} from './boolean';
 import {last, include} from './array';
+import {filterBlankValues} from './object';
 import {singularize, capitalize, startsWithNoCase, prepend} from './string';
 import {partition} from './object';
 
@@ -82,12 +83,12 @@ const universalRedirect = context => to => {
 export const fetchApi = context => async body => {
   const result = await universalFetch(context)('/api/v2', {
     method: 'POST',
-    headers: {
+    headers: filterBlankValues({
       'Accept': 'application/json',
-      // 'Content-Type': 'application/json',
+      'Content-Type': isString(body) ? 'application/json' : null,
       'X-auth': get(context, 'env.serverAuthKey'),
       'X-hash': get(context, 'req.query.hash'),
-    },
+    }),
     body,
   });
 
@@ -106,12 +107,19 @@ export const fetchApi = context => async body => {
   }
 }
 
+const respondApiData = name => jsonData => {
+  const successData = get(jsonData, `data.${name}`);
+  if (successData)
+    return successData;
+  throw(jsonData);
+}
+
 export const queryApiWithContext = context => async queryInfos => {
   const {name, type, params} = isString(queryInfos) ? {name: queryInfos} : queryInfos;
   const query = buildQuery(name, type || singularize(name), params) ;
 
   const jsonData = await fetchApi(context)(buildJSONBody(query));
-  return get(jsonData, `data.${name}`);
+  return respondApiData(name)(jsonData);
 }
 
 export const queryApi = queryApiWithContext(null);
@@ -120,11 +128,12 @@ export const mutateApi = async ({name, type, params}) => {
   const query = buildMutation(name, type, params);
 
   const jsonData = await fetchApi(null)(buildJSONBody(query));
-  return get(jsonData, `data.${name}`);
+  return respondApiData(name)(jsonData);
 }
 
 export const mutateApiMultipart = async ({name, type, params, file}) => {
+  const query = buildMutation(name, type, params);
 
-  const jsonData = await fetchApi(null)(buildMultipartBody(buildMutation(name, type, params), file));
-  return get(jsonData, `data.${name}`);
+  const jsonData = await fetchApi(null)(buildMultipartBody(query, file));
+  return respondApiData(name)(jsonData);
 }
