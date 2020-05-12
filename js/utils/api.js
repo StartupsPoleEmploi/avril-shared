@@ -23,10 +23,7 @@ const buildMutation = (name, objectType, params) => {
   return `mutation ${buildQuery(name, objectType, params)}`
 }
 
-const buildJSONBody = query => {
-  console.log(query);
-  return JSON.stringify({query});
-}
+const buildJSONBody = query => JSON.stringify({query});
 
 const buildMultipartBody = (query, file) => {
   const formData = new FormData();
