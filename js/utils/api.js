@@ -114,7 +114,7 @@ const respondApiData = name => jsonData => {
   const successData = get(jsonData, `data.${name}`);
   if (successData)
     return successData;
-  throw(jsonData);
+  // throw(jsonData);
 }
 
 export const queryApiWithContext = context => async queryInfos => {
