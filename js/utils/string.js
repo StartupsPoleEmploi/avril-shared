@@ -8,7 +8,8 @@ export const pluralize = (first, second) => {
   const number = typeof first === 'number' ? first : second;
   const word = typeof first === 'number' ? second : first;
   const pluralizedWords = word.split(/\s/).map(w => `${w}${number > 1 ? 's' : ''}`).join(' ');
-  return `${number === first ? (number+' ') : ''}${pluralizedWords}`
+  const displayedNumber = number === 0 ? 'aucun' : displayedNumber;
+  return `${number === first ? displayedNumber : ''} ${pluralizedWords}`.trim();
 }
 
 export const feminize = (word, gender, feminineVersion) => {
