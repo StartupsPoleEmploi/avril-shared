@@ -8,7 +8,7 @@ export const pluralize = (first, second) => {
   const number = typeof first === 'number' ? first : second;
   const word = typeof first === 'number' ? second : first;
   const pluralizedWords = word.split(/\s/).map(w => `${w}${number > 1 ? 's' : ''}`).join(' ');
-  const displayedNumber = number === 0 ? 'aucun' : displayedNumber;
+  const displayedNumber = number || 'aucun';
   return `${number === first ? displayedNumber : ''} ${pluralizedWords}`.trim();
 }
 
