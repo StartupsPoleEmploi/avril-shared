@@ -23,12 +23,13 @@ $navbar-padding-horizontal: 2rem;
 
     &.has-bubble {
       overflow: hidden;
-      &:after {
+      $bubble-size: 400px;
+      &:before {
         position: absolute;
-        bottom: -53%;
-        left: -20%;
-        width: 400px;
-        height: 400px;
+        bottom: 3 * $bubble-size / 4;
+        left: - $bubble-size / 4;
+        width: $bubble-size;
+        height: $bubble-size;
         border-radius: 100%;
         content: '';
         background: darken(palette($key, background), 10%);
