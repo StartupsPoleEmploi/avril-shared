@@ -22,6 +22,7 @@ $navbar-padding-horizontal: 2rem;
     background: palette($key, background) !important;
 
     &.has-bubble {
+      overflow: hidden;
       &:after {
         position: absolute;
         bottom: -53%;
