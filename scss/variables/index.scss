@@ -26,7 +26,7 @@ $navbar-padding-horizontal: 2rem;
       $bubble-size: 400px;
       &:before {
         position: absolute;
-        bottom: 3 * $bubble-size / 4;
+        bottom: -3 * $bubble-size / 4;
         left: - $bubble-size / 4;
         width: $bubble-size;
         height: $bubble-size;
