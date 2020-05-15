@@ -64,14 +64,30 @@ export default {
       url
     }
   `,
+  meeting: `
+    {
+      academyId
+      address
+      city
+      endDate
+      meetingId
+      name
+      place
+      postalCode
+      remainingPlaces
+      startDate
+      target
+    }
+  `,
   get application() {
     return `
       {
         id
-        booklet_1 {
+        booklet1 {
           insertedAt
           completedAt
         }
+        meeting ${this.meeting}
         resumes ${this.resume}
         bookletHash
         insertedAt
@@ -81,22 +97,12 @@ export default {
       }
     `
   },
-  meeting: `
-    {
-      name
-      meetings {
-        academyId
-        address
-        city
-        endDate
-        meetingId
+  get meetingList() {
+    return `
+      {
         name
-        place
-        postalCode
-        remainingPlaces
-        startDate
-        target
+        meetings ${this.meeting}
       }
-    }
-  `,
+    `
+  },
 }
