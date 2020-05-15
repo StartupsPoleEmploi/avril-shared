@@ -83,7 +83,7 @@ export default {
     return `
       {
         id
-        booklet1 {
+        booklet_1 {
           insertedAt
           completedAt
         }
