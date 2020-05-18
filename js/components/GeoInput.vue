@@ -33,7 +33,9 @@
     },
     beforeMount: function() {
       const {id, key} = this.credentials || {};
+      console.log(id, key)
       this.places = algoliasearch.initPlaces(id, key);
+      console.log(this.places)
     },
     methods: {
       search: function(input) {
