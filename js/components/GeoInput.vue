@@ -26,20 +26,22 @@
   import {removeTags} from '../utils/string';
   import {addressLabelify, algoliaToAddress} from '../utils/geo';
 
-  const places = algoliasearch.initPlaces(
-    process.env.NUXT_ALGOLIA_PLACES_APP_ID,
-    process.env.NUXT_ALGOLIA_PLACES_API_KEY
-  );
 
   export default {
     components: {
       Autocomplete,
     },
+    beforeMount: function() {
+      console.log(this.crendentials)
+      const {id, key} = this.crendentials;
+      this.places = algoliasearch.initPlaces(id, key);
+      console.log(this.places)
+    },
     methods: {
       search: function(input) {
         if (input && input.replace(/[/s]/g, '').length >= 3) {
           return new Promise((resolve, reject) => {
-            places.search({
+            this.places.search({
               language: 'fr',
               query: input,
               type: this.type,
@@ -67,6 +69,9 @@
       },
     },
     props: {
+      crendentials: {
+        type: Object,
+      },
       input: {
         type: Function,
         required: true,
