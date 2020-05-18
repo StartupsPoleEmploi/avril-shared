@@ -32,10 +32,8 @@
       Autocomplete,
     },
     beforeMount: function() {
-      console.log(this.credentials)
       const {id, key} = this.credentials || {};
       this.places = algoliasearch.initPlaces(id, key);
-      console.log(this.places)
     },
     methods: {
       search: function(input) {
