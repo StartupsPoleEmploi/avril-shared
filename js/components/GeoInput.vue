@@ -32,8 +32,8 @@
       Autocomplete,
     },
     beforeMount: function() {
-      console.log(this.crendentials)
-      const {id, key} = this.crendentials;
+      console.log(this.credentials)
+      const {id, key} = this.credentials || {};
       this.places = algoliasearch.initPlaces(id, key);
       console.log(this.places)
     },
@@ -69,7 +69,7 @@
       },
     },
     props: {
-      crendentials: {
+      credentials: {
         type: Object,
       },
       input: {
