@@ -1,6 +1,6 @@
 import {isObject, isBlank} from './boolean';
 
-Object.fromEntries = l => l.reduce((a, [k,v]) => ({...a, [k]: v}), {})
+Object.fromEntries = Object.fromEntries || l => l.reduce((a, [k,v]) => ({...a, [k]: v}), {})
 
 export const rejectBlankValues = object => Object.fromEntries(Object.entries(object).filter(([k, v]) => !isBlank(v)))
 
