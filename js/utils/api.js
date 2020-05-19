@@ -88,6 +88,7 @@ export const fetchApi = context => async body => {
       'Content-Type': isString(body) ? 'application/json' : null,
       'X-auth': get(context, 'env.serverAuthKey'),
       'X-hash': get(context, 'req.query.hash'),
+      'X-delegate-hash': get(context, 'req.query.delegate_hash'),
     }),
     body,
   });
