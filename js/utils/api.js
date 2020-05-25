@@ -43,9 +43,10 @@ const universalFetch = context => async (url, options) => {
         serverToPhoenixUrl
       },
       req: {
-        headers: {
-          cookie,
-        },
+        headers,
+        // headers: {
+        //   cookie,
+        // },
       }
     } = context;
     url = startsWithNoCase(url, 'http') ? url : prepend(url, serverToPhoenixUrl);
@@ -53,7 +54,8 @@ const universalFetch = context => async (url, options) => {
     const result = await fetch(url, {
       ...options,
       headers: {
-        cookie,
+        ...headers,
+        // cookie,
         ...get(options, 'headers', {}),
       }
     });
