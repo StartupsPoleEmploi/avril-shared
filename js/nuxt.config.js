@@ -60,10 +60,10 @@ export default {
     'cookie-universal-nuxt',
   ],
   plugins: [
-    'node_modules/avril/js/plugins/filters.js',
-    { src: 'node_modules/avril/js/plugins/datepicker', mode: 'client' },
-    'node_modules/avril/js/plugins/hotjar.js',
-    'node_modules/avril/js/plugins/crisp.js',
+    '~/node_modules/avril/js/plugins/filters.js',
+    { src: '~/node_modules/avril/js/plugins/datepicker', mode: 'client' },
+    '~/node_modules/avril/js/plugins/hotjar.js',
+    '~/node_modules/avril/js/plugins/crisp.js',
   ],
   googleAnalytics: {
     id: [
