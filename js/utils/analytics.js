@@ -1,7 +1,7 @@
 import {startsWith} from './string';
 
 export const track = (component, params) => {
-  if (!component || !params) return;
+  if (!component || !component.$ga || !params) return;
   if (startsWith(params, '?')) {
     const path = `${component.$router.options.base || '/'}${component.$route.path}${params}`.replace('//', '/');
     console.log('Triggering page', path)
