@@ -4,10 +4,11 @@ export default {
     host: '0.0.0.0',
   },
   build: {
+    cssSourceMap: false,
     postcss: {
       preset: {
         features: {
-          customProperties: false
+          customProperties: false,
         }
       }
     },
