@@ -15,36 +15,3 @@ $navbar-dropdown-border-top: none;
 $navbar-height: 5.25rem;
 $navbar-padding-vertical: 1rem;
 $navbar-padding-horizontal: 2rem;
-
-@each $key, $value in $palette {
-  .is-#{$key} {
-    color: palette($key, text) !important;
-    background: palette($key, background) !important;
-
-    &.has-bubble {
-      overflow: hidden;
-      $bubble-size: 400px;
-      &:before {
-        position: absolute;
-        bottom: -3 * $bubble-size / 4;
-        left: - $bubble-size / 4;
-        width: $bubble-size;
-        height: $bubble-size;
-        border-radius: 100%;
-        content: '';
-        background: darken(palette($key, background), 10%);
-        z-index: 0;
-      }
-    }
-
-    &.button {
-      &:hover {
-        opacity: 0.8;
-      }
-    }
-
-    .title {
-      color: palette($key, title) !important;
-    }
-  }
-}
