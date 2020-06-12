@@ -109,5 +109,9 @@
     border: none;
     text-align: left;
     font-size: inherit;
+
+    input[type="checkbox"], input[type="radio"] {
+      display: none;
+    }
   }
 </style>
