@@ -79,4 +79,9 @@ export default {
       release: process.env.HEROKU_SLUG_COMMIT,
     },
   },
+  router: {
+    prefetchLinks: false,
+    linkActiveClass: 'is-active-parent',
+    linkExactActiveClass: 'is-active',
+  },
 }
