@@ -120,7 +120,7 @@ const respondApiData = name => jsonData => {
 export const queryApiWithContext = context => async queryInfos => {
   const {name, type, params} = isString(queryInfos) ? {name: queryInfos} : queryInfos;
   const query = buildQuery(name, type || singularize(name), params) ;
-
+  console.log(query)
   const jsonData = await fetchApi(context)(buildJSONBody(query));
   return respondApiData(name)(jsonData);
 }
