@@ -85,11 +85,13 @@ export default {
     }
   `,
   experience: `
-    companyName
-    employmentType
-    jobIndustry
-    title
-    uuid
+    {
+      companyName
+      employmentType
+      jobIndustry
+      title
+      uuid
+    }
   `,
   get education() {
     return `
