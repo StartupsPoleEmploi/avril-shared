@@ -79,6 +79,40 @@ export default {
       target
     }
   `,
+  entityWithLabelOnly: `
+    {
+      label
+    }
+  `,
+
+  education: `
+    {
+      courses ${this.entityWithLabelOnly}
+      degree
+      grade
+      diplomas ${this.entityWithLabelOnly}
+    }
+  `,
+  experience: `
+    companyName
+    employmentType
+    jobIndustry
+    title
+    uuid
+  `,
+  get booklet(): {
+    return `
+      {
+        certificationName
+        certifierName
+        insertedAt
+        updatedAt
+        completedAt
+        education ${this.education}
+        experiences ${this.experience}
+      }
+    `
+  },
   get application() {
     return `
       {
