@@ -84,15 +84,6 @@ export default {
       label
     }
   `,
-
-  education: `
-    {
-      courses ${this.entityWithLabelOnly}
-      degree
-      grade
-      diplomas ${this.entityWithLabelOnly}
-    }
-  `,
   experience: `
     companyName
     employmentType
@@ -100,7 +91,17 @@ export default {
     title
     uuid
   `,
-  get booklet(): {
+  get education() {
+    return `
+      {
+        courses ${this.entityWithLabelOnly}
+        degree
+        grade
+        diplomas ${this.entityWithLabelOnly}
+      }
+    `
+  },
+  get booklet() {
     return `
       {
         certificationName
