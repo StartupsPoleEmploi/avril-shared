@@ -107,7 +107,7 @@ export default {
         uuid
         fullAddress ${this.address}
         skills ${this.entityWithLabelOnly}
-        periods: ${this.periods}
+        periods ${this.period}
       }
     `
   },
