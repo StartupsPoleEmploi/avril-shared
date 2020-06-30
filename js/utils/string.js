@@ -36,5 +36,6 @@ export const formatPhoneNumber = value => {
 export const startsWith = (string, start) => string.indexOf(start) === 0;
 export const startsWithNoCase = (string, start) => startsWith(string.toLowerCase(), start.toLowerCase());
 
-export const prepend = (string, prefix) => `${prefix}${string}`;
-export const append = (string, suffix) => `${string}${suffix}`;
+export const prepend = (string, prefix) => (string ? `${prefix || ''}${string}` : string);
+
+export const append = (string, suffix) => (string ? `${string}${prefix || ''}` : string);
