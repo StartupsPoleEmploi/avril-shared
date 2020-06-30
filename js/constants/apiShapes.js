@@ -1,41 +1,36 @@
 export default {
-  identity: `
-    {
-      firstName
-      usageName
-      lastName
-      email
-      gender
-      mobilePhone
-      homePhone
-      birthday
-      isHandicapped
-      fullAddress{
-        street
-        city
-        postalCode
-        country
-        lat
-        lng
+  get identity() {
+    return `
+      {
+        firstName
+        usageName
+        lastName
+        email
+        gender
+        mobilePhone
+        homePhone
+        birthday
+        isHandicapped
+        fullAddress ${this.address}
+        birthPlace{
+          city
+          county
+          country
+        }
+        nationality{
+          country
+          countryCode
+        }
+        currentSituation{
+          status
+          employmentType
+          registerToPoleEmploi
+          registerToPoleEmploiSince
+          compensationType
+        }
       }
-      birthPlace{
-        city
-        county
-        country
-      }
-      nationality{
-        country
-        countryCode
-      }
-      currentSituation{
-        status
-        employmentType
-        registerToPoleEmploi
-        registerToPoleEmploiSince
-        compensationType
-      }
-    }
-  `,
+    `
+  },
   certification: `
     {
       acronym
@@ -84,15 +79,38 @@ export default {
       label
     }
   `,
-  experience: `
+  address: `
     {
-      companyName
-      employmentType
-      jobIndustry
-      title
-      uuid
+      street
+      city
+      postalCode
+      country
+      lat
+      lng
     }
   `,
+  period: `
+    {
+      startDate
+      endDate
+      totalHours
+      weekHoursDuration
+    }
+  `,
+  get experience() {
+    return `
+      {
+        companyName
+        employmentType
+        jobIndustry
+        title
+        uuid
+        fullAddress ${this.address}
+        skills ${this.entityWithLabelOnly}
+        periods: ${this.periods}
+      }
+    `
+  },
   get education() {
     return `
       {
