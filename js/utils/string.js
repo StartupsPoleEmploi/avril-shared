@@ -12,9 +12,9 @@ export const pluralize = (first, second) => {
   return `${number === first ? displayedNumber : ''} ${pluralizedWords}`.trim();
 }
 
-export const feminize = (word, gender, feminineVersion) => {
-  if (gender === 'f' && feminineVersion) return feminineVersion;
-  return word.split(/\s/).map(w => `${w}${gender ? (gender === 'f' ? 'e' : '') : '·e'}`).join(' ');
+export const feminize = (word, isFeminine, feminineVersion) => {
+  if (isFeminine && feminineVersion) return feminineVersion;
+  return word.split(/\s/).map(w => `${w}${isFeminine !== undefined ? (isFeminine ? 'e' : '') : '·e'}`).join(' ');
 }
 
 export const capitalize = word => {
