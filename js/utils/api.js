@@ -129,6 +129,7 @@ export const queryApi = queryApiWithContext(null);
 
 export const mutateApi = async ({name, type, params}) => {
   const query = buildMutation(name, type, params);
+  console.log(query)
 
   const jsonData = await fetchApi(null)(buildJSONBody(query));
   return respondApiData(name)(jsonData);
