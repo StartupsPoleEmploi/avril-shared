@@ -15,7 +15,7 @@ export const workedDays = period => {
 
 export const periodTotalHours = period => {
   if (period.totalHours) return period.totalHours;
-  const dailyHours = parseInt(period.weekHours)/5;
+  const dailyHours = parseInt(period.weekHoursDuration)/5;
   return parseInt(dailyHours * workedDays(period))
 }
 
