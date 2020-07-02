@@ -10,8 +10,8 @@ export const hourFormat = 'HH\'h\'mm';
 export const dateTimeFormat = `${dateFormat} ${hourFormat}`;
 
 export const workedDays = period => {
-  const endDate = formatISODate(period.endDate);
-  const startDate = formatISODate(period.startDate);
+  const endDate = parseISODate(period.endDate);
+  const startDate = parseISODate(period.startDate);
   return differenceInBusinessDays((endDate ? addDays(endDate, 1) : new Date()), startDate)
 }
 
