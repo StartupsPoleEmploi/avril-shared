@@ -10,7 +10,7 @@ export const hourFormat = 'HH\'h\'mm';
 export const dateTimeFormat = `${dateFormat} ${hourFormat}`;
 
 export const workedDays = period => {
-  return differenceInBusinessDays((period.end ? addDays(period.end, 1) : new Date()), period.start)
+  return differenceInBusinessDays((period.endDate ? addDays(period.endDate, 1) : new Date()), period.startDate)
 }
 
 export const periodTotalHours = period => {
