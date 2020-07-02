@@ -19,6 +19,8 @@ export default {
   },
   buildDir: process.env.NUXT_BUILD_DIR,
   env: {
+    bookletPath: process.env.NUXT_BOOKLET_PATH,
+    profilePath: process.env.NUXT_PROFILE_PATH,
     clientToPhoenixUrl: process.env.CLIENT_TO_PHOENIX_URL,
     serverToPhoenixUrl: process.env.SERVER_TO_PHOENIX_URL,
     crispWebsiteId: process.env.NUXT_CRISP_WEBSITE_ID,
