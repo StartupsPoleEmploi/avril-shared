@@ -120,7 +120,6 @@ const respondApiData = name => jsonData => {
 export const queryApiWithContext = context => async queryInfos => {
   const {name, type, params} = isString(queryInfos) ? {name: queryInfos} : queryInfos;
   const query = buildQuery(name, type || singularize(name), params) ;
-  console.log(query)
   const jsonData = await fetchApi(context)(buildJSONBody(query));
   return respondApiData(name)(jsonData);
 }
@@ -129,7 +128,6 @@ export const queryApi = queryApiWithContext(null);
 
 export const mutateApi = async ({name, type, params}) => {
   const query = buildMutation(name, type, params);
-  console.log(query)
 
   const jsonData = await fetchApi(null)(buildJSONBody(query));
   return respondApiData(name)(jsonData);
