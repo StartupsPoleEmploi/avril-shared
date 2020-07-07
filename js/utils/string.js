@@ -1,6 +1,6 @@
 import {last} from '../utils/array';
 
-export const getUuid = () =>  (Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15));
+export const generateUuid = () =>  (Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15));
 
 export const singularize = word => word.replace(/s$/, '');
 
