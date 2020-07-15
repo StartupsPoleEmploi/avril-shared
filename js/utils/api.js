@@ -139,3 +139,9 @@ export const mutateApiMultipart = async ({name, type, params}, file) => {
   const jsonData = await fetchApi(null)(buildMultipartBody(query, file));
   return respondApiData(name)(jsonData);
 }
+
+export const formatApiError = (err, introMessage) => {
+  if (!isArray(get(err, 'errors'))) return;
+  const errorMessages = err.errors.map(e => `${first(e.details).key} ${first(e.details).message.join(', ')}` )
+  return [introMessage, errorMessages].filter(v => v).join(' : ');
+}
