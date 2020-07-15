@@ -1,6 +1,6 @@
 import get from 'lodash.get';
 import {isArray, isString, isObject} from './boolean';
-import {last, include} from './array';
+import {first, last, include} from './array';
 import {rejectBlankValues} from './object';
 import {singularize, capitalize, startsWithNoCase, prepend} from './string';
 import {partition} from './object';
