@@ -39,19 +39,6 @@ export default {
       slug
     }
   `,
-  delegate: `
-    {
-      id
-      name
-      address
-      personName
-      email
-      telephone
-      certifier {
-        name
-      }
-    }
-  `,
   resume: `
     {
       id
@@ -96,6 +83,25 @@ export default {
       weekHoursDuration
     }
   `,
+  get delegate() {
+    return `
+      {
+        id
+        name
+        address
+        personName
+        email
+        telephone
+        certifier {
+          name
+        }
+        meetingPlaces {
+          name
+          meetings ${this.meeting}
+        }
+      }
+    `
+  },
   get experience() {
     return `
       {
