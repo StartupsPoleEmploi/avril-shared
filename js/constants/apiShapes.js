@@ -66,7 +66,6 @@ export default {
       city
       endDate
       meetingId
-      name
       place
       postalCode
       remainingPlaces
