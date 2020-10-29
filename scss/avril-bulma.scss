@@ -11,6 +11,11 @@
     &.has-bubble {
       overflow: hidden;
       $bubble-size: 400px;
+
+      .content {
+        position: relative;
+      }
+
       &:before {
         position: absolute;
         bottom: -3 * $bubble-size / 4;
