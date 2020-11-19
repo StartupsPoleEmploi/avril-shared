@@ -27,7 +27,7 @@ export const algoliaToAddress = (type, result) => {
     }
   } else {
     return {
-      administrative: result.administrative,
+      administrative: (result.administrative || [])[0],
       city: result.locale_names[0],
       county: countyWithNumber(result),
       country: result.country,
