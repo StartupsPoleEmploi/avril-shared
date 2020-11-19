@@ -107,7 +107,7 @@ export default {
       {
         name
       }
-  `,
+    `
   },
   get experience() {
     return `
