@@ -31,15 +31,17 @@ export default {
       }
     `
   },
-  certification: `
-    {
-      acronym
-      label
-      level
-      slug
-      certifiers ${this.certifier}
-    }
-  `,
+  get certification() {
+    return `
+      {
+        acronym
+        label
+        level
+        slug
+        certifiers ${this.certifier}
+      }
+    `;
+  },
   resume: `
     {
       id
