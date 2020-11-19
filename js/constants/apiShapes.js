@@ -91,6 +91,7 @@ export default {
       {
         id
         name
+        addressName
         address
         personName
         email
