@@ -37,6 +37,7 @@ export default {
       label
       level
       slug
+      certifiers ${this.certifier}
     }
   `,
   resume: `
@@ -92,15 +93,19 @@ export default {
         personName
         email
         telephone
-        certifier {
-          name
-        }
         meetingPlaces {
           name
           meetings ${this.meeting}
         }
       }
     `
+  },
+  get certifier() {
+    return `
+      {
+        name
+      }
+  `,
   },
   get experience() {
     return `
@@ -154,6 +159,7 @@ export default {
         submittedAt
         certification ${this.certification}
         delegate ${this.delegate}
+        certifier ${this.certifier}
       }
     `
   },
