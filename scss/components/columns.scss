@@ -1,0 +1,11 @@
+.columns {
+  .column {
+    &.has-equal-height {
+      @include desktop {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+}
+
