@@ -38,6 +38,7 @@ export default {
         label
         level
         slug
+        isActive
         certifiers ${this.certifier}
       }
     `;
