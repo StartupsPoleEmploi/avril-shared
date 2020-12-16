@@ -34,6 +34,7 @@ export default {
   get certification() {
     return `
       {
+        id
         acronym
         label
         level
