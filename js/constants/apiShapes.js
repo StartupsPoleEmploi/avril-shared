@@ -98,10 +98,6 @@ export default {
         personName
         email
         telephone
-        meetingPlaces {
-          name
-          meetings ${this.meeting}
-        }
       }
     `
   },
