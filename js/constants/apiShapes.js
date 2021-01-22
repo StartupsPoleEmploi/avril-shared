@@ -98,6 +98,7 @@ export default {
         personName
         email
         telephone
+        website
       }
     `
   },
