@@ -1,10 +1,18 @@
 <template>
   <div>
     <div v-if="isAutocompleteDisabled">
-      <input type="text" name="street" placeholder="Adresse" />
-      <input type="text" name="postalCode" placeholder="Code postal" />
-      <input type="text" name="city" placeholder="City" />
-      <input type="text" name="country" placeholder="Country" />
+      <input :class="class" type="text" name="street" placeholder="Adresse" :value="value.street" @input="manualEdit" />
+      <div class="columns">
+        <div class="column is-4">
+          <input :class="class" type="text" name="postalCode" placeholder="Code postal" :value="value.postalCode" @input="manualEdit" />
+        </div>
+        <div class="column is-4">
+          <input :class="class" type="text" name="city" placeholder="City" :value="value.city" @input="manualEdit" />
+        </div>
+        <div class="column is-4">
+          <input :class="class" type="text" name="country" placeholder="Country" :value="value.country" @input="manualEdit" />
+        </div>
+      </div>
     </div>
     <div v-else>
       <Autocomplete
@@ -57,6 +65,13 @@
       }
     },
     methods: {
+      manualEdit: function(e) {
+        console.log(e);
+        console.log(e.name);
+        this.input({
+          ...this.value,
+        })
+      },
       setIsAutocompleteDisabled: function(value) {
         this.isAutocompleteDisabled = value;
       },
@@ -103,6 +118,9 @@
         type: String,
         default: '',
       },
+      class: {
+        type: String,
+      }
     },
   }
 </script>
