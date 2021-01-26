@@ -11,10 +11,10 @@
           <input :class="inputclass" type="text" name="postalCode" placeholder="Code postal" :value="value.postalCode" @input="manualEdit" />
         </div>
         <div class="column is-4">
-          <input :class="inputclass" type="text" name="city" placeholder="City" :value="value.city" @input="manualEdit" />
+          <input :class="inputclass" type="text" name="city" placeholder="Ville" :value="value.city" @input="manualEdit" />
         </div>
         <div class="column is-4">
-          <input :class="inputclass" type="text" name="country" placeholder="Country" :value="value.country" @input="manualEdit" />
+          <input :class="inputclass" type="text" name="country" placeholder="Pays" :value="value.country" @input="manualEdit" />
         </div>
       </div>
     </div>
