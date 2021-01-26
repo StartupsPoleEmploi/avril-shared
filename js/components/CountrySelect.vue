@@ -27,7 +27,7 @@
         console.log(e.target);
         console.log(e.target.value);
         console.log(countries)
-        const country = countries.find(e => e.target && (e.target.value === e.code));
+        const country = countries.find(c => e.target && (e.target.value === c.code));
         console.log(country)
         if (country) {
           this.input({
