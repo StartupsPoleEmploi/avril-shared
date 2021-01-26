@@ -14,7 +14,7 @@
           <input :class="inputclass" type="text" name="city" placeholder="Ville" :value="value.city" @input="manualEdit" />
         </div>
         <div class="column is-4">
-          <input :class="inputclass" type="text" name="country" placeholder="Pays" :value="value.country" @input="manualEdit" />
+          <CountrySelect  :class="inputclass" placeholder="Pays" name="country" :value="value.country" @input="manualEdit" />
         </div>
       </div>
     </div>
@@ -58,10 +58,12 @@
     geoTypeToBanType
   } from '../utils/geo';
   import Autocomplete from '@trevoreyre/autocomplete-vue';
+  import CountrySelect from './CountrySelect';
 
   export default {
     components: {
       Autocomplete,
+      CountrySelect,
     },
     data: function() {
       return {
