@@ -57,6 +57,9 @@
       }
     },
     methods: {
+      setIsAutocompleteDisabled: function(value) {
+        this.isAutocompleteDisabled = value;
+      },
       search: async function(input) {
         if (input && input.replace(/[/s]/g, '').length >= 3) {
           const banFilter = geoTypeToBanType(this.type);
