@@ -6,7 +6,7 @@
 </template>
 
 <script>
-  import countries from '../../fixtures/countries.json'
+  import countries from '../constants/countries.js'
 
   export default {
     data: function() {
