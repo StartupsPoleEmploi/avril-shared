@@ -3,15 +3,15 @@
     <div v-if="isAutocompleteDisabled">
       <div class="columns" v-if="type === 'address'">
         <div class="column is-12">
-          <input :class="inputclass" type="text" name="street" placeholder="Adresse" :value="value.street" @input="manualEdit" />
+          <input :class="inputclass" type="text" name="street" placeholder="Adresse" :value="(value || {}).street" @input="manualEdit" />
         </div>
       </div>
       <div class="columns">
         <div class="column is-4" v-if="type === 'address'">
-          <input :class="inputclass" type="text" name="postalCode" placeholder="Code postal" :value="value.postalCode" @input="manualEdit" />
+          <input :class="inputclass" type="text" name="postalCode" placeholder="Code postal" :value="(value || {}).postalCode" @input="manualEdit" />
         </div>
         <div class="column" :class="type === 'address' ? 'is-4' : 'is-6'">
-          <input :class="inputclass" type="text" name="city" placeholder="Ville" :value="value.city" @input="manualEdit" />
+          <input :class="inputclass" type="text" name="city" placeholder="Ville" :value="(value || {}).city" @input="manualEdit" />
         </div>
         <div class="column" :class="type === 'address' ? 'is-4' : 'is-6'">
           <CountrySelect placeholder="Pays" name="country" :value="value" :input="manualEdit" />
