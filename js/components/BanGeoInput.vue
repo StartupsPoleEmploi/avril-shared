@@ -71,16 +71,12 @@
       CountrySelect,
     },
     data: function() {
-      console.log(this.value)
       return {
         isAutocompleteDisabled: false,
       }
     },
     methods: {
       manualEdit: function(e) {
-        console.log(e);
-        console.log(e.target.name);
-        console.log(e.target.value);
         this.value = {
           [e.target.name]: e.target.value,
           ...this.value,

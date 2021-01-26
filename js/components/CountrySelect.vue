@@ -1,8 +1,10 @@
 <template>
-  <select class="select is-large" :name="name" @change="inputWrapper">
-    <option value="" disabled>{{placeholder}}</option>
-    <option v-for="country in countries" :value="country.code" :selected="isSelected(country)">{{country.name}}</option>
-  </select>
+  <div class="select is-large">
+    <select :name="name" @change="inputWrapper">
+      <option value="" disabled>{{placeholder}}</option>
+      <option v-for="country in countries" :value="country.code" :selected="isSelected(country)">{{country.name}}</option>
+    </select>
+  </div>
 </template>
 
 <script>
