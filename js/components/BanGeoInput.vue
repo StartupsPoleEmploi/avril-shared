@@ -84,21 +84,22 @@
           const banFilter = geoTypeToBanType(this.type);
           const results = await fetch(`https://api-adresse.data.gouv.fr/search/?q=${input}&${banFilter ? ('type='+banFilter) : ''}`)
           const data = await results.json();
-          return data.features;
+          return data.features
+            .map(result => banToAddress(this.type, result))
+            .filter(r => r);
         } else {
           return [];
         }
       },
       addressLabelify,
       getResultValue: function(result) {
-        // return result.properties.label;
-        return addressLabelify(banToAddress(this.type, result));
+        return addressLabelify(result);
       },
       getHtmlResultValue: function(result) {
         return (this.getResultValue(result) || '').replace('\n', '<br />');
       },
       submit: function(result) {
-        this.input(banToAddress(this.type, result));
+        this.input(result);
       },
     },
     props: {
