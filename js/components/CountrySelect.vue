@@ -11,7 +11,8 @@
   export default {
     computed: {
       valueWrapped: function() {
-        return this.value.code;
+        console.log(this.value);
+        return this.value && this.value.code;
       },
     },
     data: function() {
