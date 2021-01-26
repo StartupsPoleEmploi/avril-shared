@@ -33,7 +33,7 @@
       name: {
         type: String,
         required: true,
-      }
+      },
       placeholder: String,
       input: {
         type: String,
