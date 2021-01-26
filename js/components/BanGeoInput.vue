@@ -95,7 +95,7 @@
         return addressLabelify(banToAddress(this.type, result));
       },
       getHtmlResultValue: function(result) {
-        return this.getResultValue(result).replace('\n', '<br />');
+        return (this.getResultValue(result) || '').replace('\n', '<br />');
       },
       submit: function(result) {
         this.input(banToAddress(this.type, result));
