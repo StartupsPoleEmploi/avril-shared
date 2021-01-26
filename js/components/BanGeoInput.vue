@@ -1,21 +1,40 @@
 <template>
   <div>
-    <Autocomplete
-      auto-select
-      :placeholder="placeholder"
-      :aria-label="placeholder"
-      :get-result-value="getResultValue"
-      :search="search"
-      @submit="submit"
-      :default-value="addressLabelify(value)"
-      :debounceTime="300"
-    >
-      <template v-slot:result="{ result, props }">
-        <li v-bind="props" class="autocomplete-result">
-          <span v-html="getHtmlResultValue(result)"></span>
-        </li>
-      </template>
-    </Autocomplete>
+    <div v-if="isAutocompleteDisabled">
+      <input type="text" name="street" placeholder="Adresse" />
+      <input type="text" name="postalCode" placeholder="Code postal" />
+      <input type="text" name="city" placeholder="City" />
+      <input type="text" name="country" placeholder="Country" />
+    </div>
+    <div v-else>
+      <Autocomplete
+        auto-select
+        :placeholder="placeholder"
+        :aria-label="placeholder"
+        :get-result-value="getResultValue"
+        :search="search"
+        @submit="submit"
+        :default-value="addressLabelify(value)"
+        :debounceTime="300"
+      >
+        <template v-slot:result="{ result, props }">
+          <li v-bind="props" class="autocomplete-result">
+            <span v-html="getHtmlResultValue(result)"></span>
+          </li>
+        </template>
+      </Autocomplete>
+    </div>
+    <p class="is-pulled-right">
+      <small>
+        <span v-if="isAutocompleteDisabled">
+          <a @click="e => setIsAutocompleteDisabled(false)">Réactiver l'aide à la saisie</a>
+        </span>
+        <span v-else>
+          L'adresse n'est pas proposée ou n'est pas en France ?
+          <a @click="e => setIsAutocompleteDisabled(true)">Saisir manuellement</a>
+        </span>
+      </small>
+    </p>
   </div>
 </template>
 
@@ -31,6 +50,11 @@
   export default {
     components: {
       Autocomplete,
+    },
+    data: function() {
+      return {
+        isAutocompleteDisabled: false,
+      }
     },
     methods: {
       search: async function(input) {
