@@ -36,13 +36,13 @@
         </template>
       </Autocomplete>
     </div>
-    <p class="is-pulled-right">
+    <p class="toggler has-text-right">
       <small>
         <span v-if="isAutocompleteDisabled">
           <a @click="e => setIsAutocompleteDisabled(false)">Réactiver l'aide à la saisie</a>
         </span>
         <span v-else>
-          L'adresse n'est pas proposée ou n'est pas en France ?
+          L'adresse n'est pas en France ou n'est pas proposée ?
           <a @click="e => setIsAutocompleteDisabled(true)">Saisir manuellement</a>
         </span>
       </small>
@@ -71,10 +71,13 @@
     methods: {
       manualEdit: function(e) {
         console.log(e);
-        this.input({
+        console.log(e.target.name);
+        console.log(e.target.value);
+        this.value = {
           [e.target.name]: e.target.value,
           ...this.value,
-        })
+        }
+        this.input(this.value)
       },
       setIsAutocompleteDisabled: function(value) {
         this.isAutocompleteDisabled = value;
@@ -169,5 +172,9 @@
         padding-top: 8px;
       }
     }
+  }
+
+  .toggler {
+    margin-top: 0.5rem;
   }
 </style>
