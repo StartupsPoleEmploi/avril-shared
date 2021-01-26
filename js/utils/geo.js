@@ -3,7 +3,7 @@ import {isBlank} from './boolean.js';
 export const geoTypeToBanType = geoType => {
   const MAP = {
     city: 'municipality',
-    address: 'street',
+    address: 'housenumber',
   }
   return MAP[geoType];
 }
