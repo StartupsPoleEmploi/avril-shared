@@ -19,8 +19,8 @@
     },
     methods: {
       isSelected: function(country) {
-        const preselectedCode = this.value && this.value.countryCode;
-        return preselectedCode ? preselectedCode === country.code : 'FR';
+        const preselectedCode = this.value && this.value.countryCode || 'FR';
+        return preselectedCode === country.code;
       },
       inputWrapper: function(e) {
         const country = countries.find(c => e.target && (e.target.value === c.code));
@@ -41,7 +41,6 @@
       },
       value: {
         type: Object,
-        required: true,
       }
     }
   }
