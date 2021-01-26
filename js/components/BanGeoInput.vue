@@ -77,11 +77,13 @@
     },
     methods: {
       manualEdit: function(e) {
-        this.value = {
-          [e.target.name]: e.target.value,
-          ...this.value,
+        if (e.target) {
+          this.value = {
+            [e.target.name]: e.target.value,
+            ...this.value,
+          }
+          this.input(this.value)
         }
-        this.input(this.value)
       },
       setIsAutocompleteDisabled: function(value) {
         this.isAutocompleteDisabled = value;

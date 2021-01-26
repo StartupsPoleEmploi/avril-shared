@@ -1,4 +1,5 @@
 import {isBlank} from './boolean.js';
+import get from 'lodash.get';
 
 export const geoTypeToBanType = geoType => {
   const MAP = {
@@ -18,7 +19,7 @@ export const countyWithNumber = result => {
 }
 
 export const countyAndAdministrative = result => {
-  const [countyNb, county, administrative] = result.properties.context.split(', ');
+  const [countyNb, county, administrative] = get(result, 'properties.context', '').split(', ');
   return {
     county: `${county} (${countyNb})`,
     administrative,
@@ -26,26 +27,26 @@ export const countyAndAdministrative = result => {
 }
 
 export const banToAddress = (type, result) => {
-  if (!result || (geoTypeToBanType(type) !== result.properties.type)) return;
+  if (!result || (geoTypeToBanType(type) !== get(result, 'properties.type'))) return;
   if (type === 'city') {
     return {
       ...countyAndAdministrative(result),
-      city: result.properties.city,
-      postalCode: result.properties.postcode,
+      city: get(result, 'properties.city'),
+      postalCode: get(result, 'properties.postcode'),
       country: 'France',
       countryCode: 'FR',
-      lat: result.geometry.coordinates[1],
-      lng: result.geometry.coordinates[0],
+      lat: get(result, 'geometry.coordinates.1'),
+      lng: get(result, 'geometry.coordinates.0'),
     }
   }
   return {
-    street: result.properties.name,
-    city: result.properties.city,
-    postalCode: result.properties.postcode,
+    street: get(result, 'properties.name'),
+    city: get(result, 'properties.city'),
+    postalCode: get(result, 'properties.postcode'),
     country: 'France',
     countryCode: 'FR',
-    lat: result.geometry.coordinates[1],
-    lng: result.geometry.coordinates[0],
+    lat: get(result, 'geometry.coordinates.1'),
+    lng: get(result, 'geometry.coordinates.0'),
   }
 }
 
