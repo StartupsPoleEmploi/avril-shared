@@ -10,10 +10,10 @@
         <div class="column is-4" v-if="type === 'address'">
           <input :class="inputclass" type="text" name="postalCode" placeholder="Code postal" :value="value.postalCode" @input="manualEdit" />
         </div>
-        <div class="column is-4">
+        <div class="column" :class="type === 'address' ? 'is-4' : 'is-6'">
           <input :class="inputclass" type="text" name="city" placeholder="Ville" :value="value.city" @input="manualEdit" />
         </div>
-        <div class="column is-4">
+        <div class="column" :class="type === 'address' ? 'is-4' : 'is-6'">
           <CountrySelect placeholder="Pays" name="country" :value="value" :input="manualEdit" />
         </div>
       </div>
@@ -48,7 +48,7 @@
           <span v-else>
             L'adresse n'est pas en France ou n'est pas proposée ?
           </span>
-          <a @click="e => setIsAutocompleteDisabled(true)">Saisir manuellement</a>
+          <a @click="e => setIsAutocompleteDisabled(true)">La saisir manuellement</a>
         </span>
       </small>
     </p>
