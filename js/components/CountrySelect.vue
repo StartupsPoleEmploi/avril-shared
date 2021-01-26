@@ -6,6 +6,7 @@
 </template>
 
 <script>
+  import sortBy from 'lodash.sortby';
   import countries from '../constants/countries.js'
 
   export default {
@@ -17,7 +18,7 @@
     },
     data: function() {
       return {
-        countries,
+        countries: sortBy(countries, c => c.name),
       }
     },
     methods: {
