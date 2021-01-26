@@ -9,6 +9,12 @@ export const countyWithNumber = result => {
   return county;
 }
 
+export const banToAddress = (type, result) => {
+  if (!result) return;
+  console.log(result);
+  return result;
+}
+
 export const algoliaToAddress = (type, result) => {
   if (!result) return;
   if (type == 'address') {
