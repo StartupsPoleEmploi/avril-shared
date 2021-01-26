@@ -18,10 +18,6 @@
       }
     },
     methods: {
-      // isSelected: function(country) {
-      //   const preselectedCode = this.value && this.value.countryCode;
-      //   return preselectedCode === country.code;
-      // },
       inputWrapper: function(e) {
         const country = countries.find(c => e.target && (e.target.value === c.code));
         if (country) {

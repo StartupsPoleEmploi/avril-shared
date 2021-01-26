@@ -43,41 +43,41 @@ export const banToAddress = (type, result) => {
     city: result.properties.city,
     postalCode: result.properties.postcode,
     country: 'France',
-      countryCode: 'FR',
+    countryCode: 'FR',
     lat: result.geometry.coordinates[1],
     lng: result.geometry.coordinates[0],
   }
 }
 
-export const algoliaToAddress = (type, result) => {
-  if (!result) return;
-  if (type == 'address') {
-    return {
-      street: result.locale_names[0],
-      city: (result.city || [])[0],
-      postalCode: (result.postcode || [])[0],
-      country: result.country,
-      lat: result._geoloc.lat,
-      lng: result._geoloc.lng,
-    }
-  } else if (type == 'country') {
-    return {
-      country: result.locale_names[0],
-      countryCode: result.country_code.toUpperCase(),
-    }
-  } else {
-    return {
-      administrative: (result.administrative || [])[0],
-      city: result.locale_names[0],
-      county: countyWithNumber(result),
-      country: result.country,
-      countryCode: result.country_code,
-      lat: result._geoloc.lat,
-      lng: result._geoloc.lng,
-      postalCode: (result.postcode || [])[0],
-    }
-  }
-}
+// export const algoliaToAddress = (type, result) => {
+//   if (!result) return;
+//   if (type == 'address') {
+//     return {
+//       street: result.locale_names[0],
+//       city: (result.city || [])[0],
+//       postalCode: (result.postcode || [])[0],
+//       country: result.country,
+//       lat: result._geoloc.lat,
+//       lng: result._geoloc.lng,
+//     }
+//   } else if (type == 'country') {
+//     return {
+//       country: result.locale_names[0],
+//       countryCode: result.country_code.toUpperCase(),
+//     }
+//   } else {
+//     return {
+//       administrative: (result.administrative || [])[0],
+//       city: result.locale_names[0],
+//       county: countyWithNumber(result),
+//       country: result.country,
+//       countryCode: result.country_code,
+//       lat: result._geoloc.lat,
+//       lng: result._geoloc.lng,
+//       postalCode: (result.postcode || [])[0],
+//     }
+//   }
+// }
 
 export const addressLabelify = address => {
   if (isBlank(address)) return null;
