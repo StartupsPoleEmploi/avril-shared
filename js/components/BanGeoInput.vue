@@ -36,7 +36,7 @@
         </template>
       </Autocomplete>
     </div>
-    <p class="toggler has-text-right">
+    <p v-if="!disableManualInput" class="toggler has-text-right">
       <small>
         <span v-if="isAutocompleteDisabled">
           <a @click="e => setIsAutocompleteDisabled(false)">Réactiver l'aide à la saisie</a>
@@ -132,6 +132,10 @@
       },
       inputclass: {
         type: String,
+      },
+      disableManualInput: {
+        type: Boolean,
+        default: false,
       }
     },
   }
