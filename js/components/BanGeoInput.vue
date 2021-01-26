@@ -1,16 +1,16 @@
 <template>
   <div>
     <div v-if="isAutocompleteDisabled">
-      <input :class="class" type="text" name="street" placeholder="Adresse" :value="value.street" @input="manualEdit" />
+      <input :class="inputclass" type="text" name="street" placeholder="Adresse" :value="value.street" @input="manualEdit" />
       <div class="columns">
         <div class="column is-4">
-          <input :class="class" type="text" name="postalCode" placeholder="Code postal" :value="value.postalCode" @input="manualEdit" />
+          <input :class="inputclass" type="text" name="postalCode" placeholder="Code postal" :value="value.postalCode" @input="manualEdit" />
         </div>
         <div class="column is-4">
-          <input :class="class" type="text" name="city" placeholder="City" :value="value.city" @input="manualEdit" />
+          <input :class="inputclass" type="text" name="city" placeholder="City" :value="value.city" @input="manualEdit" />
         </div>
         <div class="column is-4">
-          <input :class="class" type="text" name="country" placeholder="Country" :value="value.country" @input="manualEdit" />
+          <input :class="inputclass" type="text" name="country" placeholder="Country" :value="value.country" @input="manualEdit" />
         </div>
       </div>
     </div>
@@ -118,7 +118,7 @@
         type: String,
         default: '',
       },
-      class: {
+      inputclass: {
         type: String,
       }
     },
