@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="isAutocompleteDisabled">
-      <div class="columns">
+      <div class="columns" v-if="type === 'address'">
         <div class="column is-12">
           <input :class="inputclass" type="text" name="street" placeholder="Adresse" :value="value.street" @input="manualEdit" />
         </div>
@@ -42,7 +42,12 @@
           <a @click="e => setIsAutocompleteDisabled(false)">Réactiver l'aide à la saisie</a>
         </span>
         <span v-else>
-          L'adresse n'est pas en France ou n'est pas proposée ?
+          <span v-if="type === 'city'">
+            La ville n'est pas en France ?
+          </span>
+          <span v-else>
+            L'adresse n'est pas en France ou n'est pas proposée ?
+          </span>
           <a @click="e => setIsAutocompleteDisabled(true)">Saisir manuellement</a>
         </span>
       </small>
@@ -66,6 +71,7 @@
       CountrySelect,
     },
     data: function() {
+      console.log(this.value)
       return {
         isAutocompleteDisabled: false,
       }

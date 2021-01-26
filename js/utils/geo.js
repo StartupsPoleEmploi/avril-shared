@@ -43,6 +43,7 @@ export const banToAddress = (type, result) => {
     city: result.properties.city,
     postalCode: result.properties.postcode,
     country: 'France',
+      countryCode: 'FR',
     lat: result.geometry.coordinates[1],
     lng: result.geometry.coordinates[0],
   }
