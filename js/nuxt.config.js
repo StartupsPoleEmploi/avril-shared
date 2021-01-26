@@ -26,10 +26,6 @@ export default {
     crispWebsiteId: process.env.NUXT_CRISP_WEBSITE_ID,
     serverAuthKey: process.env.SECRET_KEY_BASE,
     hotjarId: process.env.HOTJAR_ID,
-    algoliaCredentials: {
-      id: process.env.ALGOLIA_PLACES_APP_ID,
-      key: process.env.ALGOLIA_PLACES_API_KEY
-    },
   },
   head: {
     meta: [
