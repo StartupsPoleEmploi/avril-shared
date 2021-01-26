@@ -2,7 +2,7 @@
   <div class="select is-large">
     <select :name="name" @change="inputWrapper">
       <option value="" disabled :selected="!value">{{placeholder}}</option>
-      <option v-for="country in countries" :value="country.code" :selected="this.value && this.value.countryCode === country.code">{{country.name}}</option>
+      <option v-for="country in countries" :value="country.code" :selected="value && value.countryCode === country.code">{{country.name}}</option>
     </select>
   </div>
 </template>
