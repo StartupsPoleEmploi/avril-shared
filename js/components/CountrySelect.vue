@@ -23,12 +23,15 @@
     },
     methods: {
       inputWrapper: function(e) {
+        console.log(e);
         const country = countries.find(e => e.target && (e.target.value === e.code));
         console.log(country)
-        this.input({
-          country: country.name,
-          countryCode: country.code,
-        })
+        if (country) {
+          this.input({
+            country: country.name,
+            countryCode: country.code,
+          })
+        }
       },
     },
     props: {
