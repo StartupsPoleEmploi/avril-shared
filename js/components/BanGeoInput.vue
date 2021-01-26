@@ -14,7 +14,7 @@
           <input :class="inputclass" type="text" name="city" placeholder="Ville" :value="value.city" @input="manualEdit" />
         </div>
         <div class="column is-4">
-          <CountrySelect  :class="inputclass" placeholder="Pays" name="country" :value="value.country" @input="manualEdit" />
+          <CountrySelect placeholder="Pays" name="country" :value="value.country" :input="manualEdit" />
         </div>
       </div>
     </div>
