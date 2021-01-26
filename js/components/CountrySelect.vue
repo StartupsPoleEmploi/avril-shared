@@ -24,6 +24,9 @@
     methods: {
       inputWrapper: function(e) {
         console.log(e);
+        console.log(e.target);
+        console.log(e.target.value);
+        console.log(countries)
         const country = countries.find(e => e.target && (e.target.value === e.code));
         console.log(country)
         if (country) {
