@@ -19,12 +19,11 @@
     },
     methods: {
       isSelected: function(country) {
-        console.log(this.value, country, this.value && this.value.code === country.code);
-        return this.value && this.value.countryCode === country.code;
+        const preselectedCode = this.value && this.value.countryCode;
+        return preselectedCode ? preselectedCode === country.code : 'FR';
       },
       inputWrapper: function(e) {
         const country = countries.find(c => e.target && (e.target.value === c.code));
-        console.log(country)
         if (country) {
           this.input({
             country: country.name,
