@@ -1,7 +1,7 @@
 <template>
   <select v-bind="$props">
-    <option value="" disabled selected>{{placeholder}}</option>
-    <option v-for="country in countries"></option>
+    <option value="" disabled>{{placeholder}}</option>
+    <option v-for="country in countries" :value="country.code">{{country.name}}</option>
   </select>
 </template>
 
