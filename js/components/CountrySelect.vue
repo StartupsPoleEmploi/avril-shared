@@ -18,7 +18,7 @@
     methods: {
       isSelected: function(country) {
         console.log(this.value, country, this.value && this.value.code === country.code);
-        return this.value && this.value.code === country.code;
+        return this.value && this.value.countryCode === country.code;
       },
       inputWrapper: function(e) {
         const country = countries.find(c => e.target && (e.target.value === c.code));
