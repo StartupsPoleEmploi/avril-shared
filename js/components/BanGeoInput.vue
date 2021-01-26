@@ -1,7 +1,11 @@
 <template>
   <div>
     <div v-if="isAutocompleteDisabled">
-      <input :class="inputclass" type="text" name="street" placeholder="Adresse" :value="value.street" @input="manualEdit" />
+      <div class="columns">
+        <div class="column is-12">
+          <input :class="inputclass" type="text" name="street" placeholder="Adresse" :value="value.street" @input="manualEdit" />
+        </div>
+      </div>
       <div class="columns">
         <div class="column is-4">
           <input :class="inputclass" type="text" name="postalCode" placeholder="Code postal" :value="value.postalCode" @input="manualEdit" />
@@ -67,8 +71,8 @@
     methods: {
       manualEdit: function(e) {
         console.log(e);
-        console.log(e.name);
         this.input({
+          [e.target.name]: e.target.value,
           ...this.value,
         })
       },
@@ -87,7 +91,7 @@
       },
       addressLabelify,
       getResultValue: function(result) {
-        return result.properties.label;
+        // return result.properties.label;
         return addressLabelify(banToAddress(this.type, result));
       },
       getHtmlResultValue: function(result) {

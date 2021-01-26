@@ -26,7 +26,7 @@ export const countyAndAdministrative = result => {
 }
 
 export const banToAddress = (type, result) => {
-  if (!result || geoTypeToBanType(type) !== result.properties.type) return;
+  if (!result || (geoTypeToBanType(type) !== result.properties.type)) return;
   if (type === 'city') {
     return {
       ...countyAndAdministrative(result),
