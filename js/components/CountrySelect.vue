@@ -1,7 +1,7 @@
 <template>
   <select class="select is-large" :name="name" @change="inputWrapper">
     <option value="" disabled>{{placeholder}}</option>
-    <option v-for="country in countries" :value="country.code" :selected="value && value.code === country.code">{{country.name}}</option>
+    <option v-for="country in countries" :value="country.code" :selected="isSelected(country)">{{country.name}}</option>
   </select>
 </template>
 
@@ -16,6 +16,10 @@
       }
     },
     methods: {
+      isSelected: function(country) {
+        console.log(this.value);
+        return this.value && this.value.code === country.code;
+      },
       inputWrapper: function(e) {
         const country = countries.find(c => e.target && (e.target.value === c.code));
         console.log(country)
