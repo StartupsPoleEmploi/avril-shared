@@ -37,7 +37,7 @@
       },
       placeholder: String,
       input: {
-        type: String,
+        type: Function,
         required: true,
       }
     }
