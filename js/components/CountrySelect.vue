@@ -17,7 +17,7 @@
     },
     methods: {
       isSelected: function(country) {
-        console.log(this.value);
+        console.log(this.value, this.value && this.value.code === country.code);
         return this.value && this.value.code === country.code;
       },
       inputWrapper: function(e) {
