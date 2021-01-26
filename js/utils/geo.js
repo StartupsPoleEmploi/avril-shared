@@ -1,5 +1,13 @@
 import {isBlank} from './boolean.js';
 
+export const geoTypeToBanType = geoType => {
+  const MAP = {
+    city: 'municipality',
+    address: 'street',
+  }
+  return MAP[geoType];
+}
+
 export const countyWithNumber = result => {
   const county = (result.county || [])[0]
   if (result.country_code === 'fr') {

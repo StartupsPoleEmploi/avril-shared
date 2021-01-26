@@ -1,6 +1,6 @@
 <template>
   <div>
-    <autocomplete
+    <Autocomplete
       auto-select
       :placeholder="placeholder"
       :aria-label="placeholder"
@@ -8,20 +8,25 @@
       :search="search"
       @submit="submit"
       :default-value="addressLabelify(value)"
+      :debounceTime="300"
     >
       <template v-slot:result="{ result, props }">
         <li v-bind="props" class="autocomplete-result">
           <span v-html="getHtmlResultValue(result)"></span>
         </li>
       </template>
-    </autocomplete>
+    </Autocomplete>
   </div>
 </template>
 
 <script type="text/javascript">
-  import {debounce} from '../utils/function';
+  import {include} from '../utils/array';
+  import {
+    addressLabelify,
+    banToAddress,
+    geoTypeToBanType
+  } from '../utils/geo';
   import Autocomplete from '@trevoreyre/autocomplete-vue';
-  import {addressLabelify, banToAddress} from '../utils/geo';
 
   export default {
     components: {
@@ -30,7 +35,8 @@
     methods: {
       search: async function(input) {
         if (input && input.replace(/[/s]/g, '').length >= 3) {
-          const results = await fetch(`https://api-adresse.data.gouv.fr/search/?q=paris&type=municipality`)
+          const banFilter = geoTypeToBanType(this.type);
+          const results = await fetch(`https://api-adresse.data.gouv.fr/search/?q=${input}&${banFilter ? ('type='+banFilter) : ''}`)
           const data = await results.json();
           return data.features;
         } else {
@@ -50,9 +56,6 @@
       },
     },
     props: {
-      credentials: {
-        type: Object,
-      },
       input: {
         type: Function,
         required: true,
@@ -67,6 +70,7 @@
       type: {
         type: String,
         default: 'address',
+        validator: value => include(['address', 'city'], value),
       },
       countries: {
         type: String,
