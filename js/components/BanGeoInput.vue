@@ -39,6 +39,7 @@
       },
       addressLabelify,
       getResultValue: function(result) {
+        return result.properties.label;
         return addressLabelify(banToAddress(this.type, result));
       },
       getHtmlResultValue: function(result) {

@@ -9,10 +9,36 @@ export const countyWithNumber = result => {
   return county;
 }
 
+export const countyAndAdministrative = result => {
+  const [countyNb, county, administrative] = result.properties.context.split(', ');
+  return {
+    county: `${county} (${countyNb})`,
+    administrative,
+  }
+}
+
 export const banToAddress = (type, result) => {
   if (!result) return;
-  console.log(result);
-  return result;
+  if (type === 'city') {
+    if (result.properties.type !== 'municipality') return;
+    return {
+      ...countyAndAdministrative(result),
+      city: result.properties.city,
+      postalCode: result.properties.postcode,
+      country: 'France',
+      countryCode: 'FR',
+      lat: result.geometry.coordinates[1],
+      lng: result.geometry.coordinates[0],
+    }
+  }
+  return {
+    street: result.properties.name,
+    city: result.properties.city,
+    postalCode: result.properties.postcode,
+    country: 'France',
+    lat: result.geometry.coordinates[1],
+    lng: result.geometry.coordinates[0],
+  }
 }
 
 export const algoliaToAddress = (type, result) => {
