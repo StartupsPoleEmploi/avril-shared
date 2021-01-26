@@ -10,12 +10,6 @@
   import countries from '../constants/countries.js'
 
   export default {
-    computed: {
-      valueWrapped: function() {
-        console.log(this.value);
-        return this.value && this.value.code;
-      },
-    },
     data: function() {
       return {
         countries: sortBy(countries, c => c.name),
@@ -41,7 +35,7 @@
         required: true,
       },
       value: {
-        type: String,
+        type: Object,
         required: true,
       }
     }

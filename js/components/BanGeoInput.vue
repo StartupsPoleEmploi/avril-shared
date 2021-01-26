@@ -7,7 +7,7 @@
         </div>
       </div>
       <div class="columns">
-        <div class="column is-4">
+        <div class="column is-4" v-if="type === 'address'">
           <input :class="inputclass" type="text" name="postalCode" placeholder="Code postal" :value="value.postalCode" @input="manualEdit" />
         </div>
         <div class="column is-4">
