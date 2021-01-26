@@ -31,7 +31,7 @@
       search: async function(input) {
         if (input && input.replace(/[/s]/g, '').length >= 3) {
           const results = await fetch(`https://api-adresse.data.gouv.fr/search/?q=paris&type=municipality`)
-          const data = JSON.parse(results);
+          const data = await results.json();
           return data.features;
         } else {
           return [];
