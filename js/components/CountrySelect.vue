@@ -23,7 +23,7 @@
     },
     methods: {
       inputWrapper: function(e) {
-        const country = countries.find(e => e.target.value === e.code);
+        const country = countries.find(e => e.target && (e.target.value === e.code));
         console.log(country)
         this.input({
           country: country.name,
@@ -32,13 +32,14 @@
       },
     },
     props: {
-      name: {
-        type: String,
-        required: true,
-      },
+      name: String,
       placeholder: String,
       input: {
         type: Function,
+        required: true,
+      },
+      value: {
+        type: Object,
         required: true,
       }
     }
