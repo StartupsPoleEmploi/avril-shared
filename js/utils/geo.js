@@ -22,7 +22,7 @@ export const countyAndAdministrative = result => {
   const [countyNb, county, administrative] = get(result, 'properties.context', '').split(', ');
   return {
     county: `${county} (${countyNb})`,
-    administrative,
+    administrative: administrative || county,
   }
 }
 
