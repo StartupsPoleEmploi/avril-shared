@@ -78,9 +78,10 @@
     methods: {
       manualEdit: function(e) {
         if (e.target.name && e.target.value) {
+          console.log(e.target.name, e.target.value)
           const newValue = {
-            [e.target.name]: e.target.value,
             ...this.value,
+            [e.target.name]: e.target.value,
           };
           console.log('new value', newValue)
           this.input(newValue);
