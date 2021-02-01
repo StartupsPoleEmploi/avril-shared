@@ -76,6 +76,7 @@ export default {
       city
       postalCode
       country
+      countryCode
       lat
       lng
     }
