@@ -78,10 +78,12 @@
     methods: {
       manualEdit: function(e) {
         if (e.target.name && e.target.value) {
-          this.input({
+          const newValue = {
             [e.target.name]: e.target.value,
             ...this.value,
-          })
+          };
+          console.log('new value', newValue)
+          this.input(newValue);
           // this.input(this.value)
         }
       },
