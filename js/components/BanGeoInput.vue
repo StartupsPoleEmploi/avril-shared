@@ -77,15 +77,16 @@
     },
     methods: {
       manualEdit: function(e) {
-        if (e.target.name && e.target.value) {
-          console.log(e.target.name, e.target.value)
-          const newValue = {
+        if (e.target) {
+          this.input({
             ...this.value,
             [e.target.name]: e.target.value,
-          };
-          console.log('new value', newValue)
-          this.input(newValue);
-          // this.input(this.value)
+          });
+        } else {
+          this.input({
+            ...this.value,
+            country: e,
+          });
         }
       },
       setIsAutocompleteDisabled: function(value) {
