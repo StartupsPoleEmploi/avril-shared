@@ -83,6 +83,7 @@
             [e.target.name]: e.target.value,
             lat: null,
             lng: null,
+            county: null,
           });
         } else {
           this.input({
@@ -90,6 +91,7 @@
             ...e,
             lat: null,
             lng: null,
+            county: null,
           });
         }
       },
