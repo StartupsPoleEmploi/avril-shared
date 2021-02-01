@@ -85,7 +85,7 @@
         } else {
           this.input({
             ...this.value,
-            country: e,
+            ...e,
           });
         }
       },
