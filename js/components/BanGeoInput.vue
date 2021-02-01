@@ -81,11 +81,15 @@
           this.input({
             ...this.value,
             [e.target.name]: e.target.value,
+            lat: null,
+            lng: null,
           });
         } else {
           this.input({
             ...this.value,
             ...e,
+            lat: null,
+            lng: null,
           });
         }
       },
