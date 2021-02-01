@@ -77,12 +77,12 @@
     },
     methods: {
       manualEdit: function(e) {
-        if (e.target) {
-          this.value = {
+        if (e.target.name && e.target.value) {
+          this.input({
             [e.target.name]: e.target.value,
             ...this.value,
-          }
-          this.input(this.value)
+          })
+          // this.input(this.value)
         }
       },
       setIsAutocompleteDisabled: function(value) {
