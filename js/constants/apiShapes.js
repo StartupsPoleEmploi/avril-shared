@@ -101,6 +101,7 @@ export default {
         email
         telephone
         website
+        isActive
       }
     `
   },
@@ -161,6 +162,7 @@ export default {
         bookletHash
         insertedAt
         submittedAt
+        isCertificationDelegateAvailable
         certification ${this.certification}
         delegate ${this.delegate}
         certifier ${this.certifier}
