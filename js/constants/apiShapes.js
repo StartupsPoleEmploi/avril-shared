@@ -101,6 +101,7 @@ export default {
         email
         telephone
         website
+        isActive
       }
     `
   },
