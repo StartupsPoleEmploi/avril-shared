@@ -102,6 +102,7 @@ export default {
         telephone
         website
         isActive
+        externalNotes
       }
     `
   },
@@ -109,6 +110,7 @@ export default {
     return `
       {
         name
+        externalNotes
       }
     `
   },
