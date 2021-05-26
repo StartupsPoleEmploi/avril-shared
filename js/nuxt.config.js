@@ -49,28 +49,25 @@ export default {
       { rel: 'icon', type: 'image/png', sizes: '96x96', href: '/images/favicons/favicon-96x96.png'},
       { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/images/favicons/favicon-16x16.png'},
     ],
+    script: [
+      process.env.TAG_COMMANDER ? {
+        src: `https://cdn.tagcommander.com${process.env.TAG_COMMANDER}.js`,
+        body: true,
+        async: true
+      } : null,
+    ].filter(v => v)
   },
   mode: 'universal',
   modules: [
     'nuxt-svg-loader',
     '@nuxtjs/markdownit',
-    '@nuxtjs/google-analytics',
     '@nuxtjs/sentry',
     'cookie-universal-nuxt',
   ],
   plugins: [
     '~/node_modules/avril/js/plugins/filters.js',
     { src: '~/node_modules/avril/js/plugins/datepicker', mode: 'client' },
-    '~/node_modules/avril/js/plugins/hotjar.js',
-    '~/node_modules/avril/js/plugins/crisp.js',
   ],
-  googleAnalytics: {
-    id: [
-      process.env.GA_API_KEY,
-      process.env.GA_PE_API_KEY,
-    ].filter(v => v),
-    dev: false,
-  },
   sentry: {
     config: {
       environment: process.env.NODE_ENV,
