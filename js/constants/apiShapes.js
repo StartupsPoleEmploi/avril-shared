@@ -48,6 +48,8 @@ export default {
   resume: `
     {
       id
+      name
+      category
       filename
       url
     }
