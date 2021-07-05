@@ -42,13 +42,15 @@
           <a @click="e => setIsAutocompleteDisabled(false)">Réactiver l'aide à la saisie</a>
         </span>
         <span v-else>
-          <span v-if="type === 'city'">
-            La ville n'est pas en France ?
-          </span>
-          <span v-else>
-            L'adresse n'est pas en France ou n'est pas proposée ?
-          </span>
-          <a @click="e => setIsAutocompleteDisabled(true)">La saisir manuellement</a>
+          <a @click="e => setIsAutocompleteDisabled(true)" class="is-underlined">
+            <span v-if="type === 'city'">
+              La ville n'est pas en France ?
+            </span>
+            <span v-else>
+              L'adresse n'est pas en France ou n'est pas proposée ?
+            </span>
+            La saisir manuellement
+          </a>
         </span>
       </small>
     </p>
