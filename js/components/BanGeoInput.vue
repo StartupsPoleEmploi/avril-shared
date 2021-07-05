@@ -39,7 +39,7 @@
     <p v-if="!disableManualInput" class="toggler has-text-right">
       <small>
         <span v-if="isAutocompleteDisabled">
-          <a @click="e => setIsAutocompleteDisabled(false)">Réactiver l'aide à la saisie</a>
+          <a @click="e => setIsAutocompleteDisabled(false)" class="is-underlined">Réactiver l'aide à la saisie</a>
         </span>
         <span v-else>
           <a @click="e => setIsAutocompleteDisabled(true)" class="is-underlined">
