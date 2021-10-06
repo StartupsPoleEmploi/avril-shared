@@ -102,6 +102,8 @@
 </script>
 
 <style lang="scss" scoped>
+  @import '../../scss/variables/index';
+
   button.box {
     cursor: pointer;
     margin-bottom: 1rem;
@@ -109,5 +111,9 @@
     border: none;
     text-align: left;
     font-size: inherit;
+
+    &.is-danger {
+      border-color: $red;
+    }
   }
 </style>
