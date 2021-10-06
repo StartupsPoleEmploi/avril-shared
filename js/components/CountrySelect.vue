@@ -1,5 +1,5 @@
 <template>
-  <div class="select is-large">
+  <div :class="`select is-large ${isMissingAndRequired ? 'is-danger' : ''}`">
     <select :name="name" @change="inputWrapper">
       <option value="" disabled :selected="!value">{{placeholder}}</option>
       <option v-for="country in countries" :value="country.code" :selected="isSelected(country)">{{country.name}}</option>
@@ -40,6 +40,9 @@
       },
       value: {
         type: Object,
+      },
+      isMissingAndRequired: {
+        type: Boolean
       }
     }
   }
