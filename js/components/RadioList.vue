@@ -11,7 +11,7 @@
       <button v-if="!showExtras" @click="setUserShowExtras" class="button is-text">Autres propositions</button>
       <div v-if="showExtras"  :class="inline ? 'columns' : null">
         <div :class="inline ? 'column' : null" v-for="{label, value} in otherOptions" :key="value">
-          <button @click="clickAndGo(value)" class="box" :class="isSelected(value) ? 'active' : ''">
+          <button @click="clickAndGo(value)" class="box" :class="`${extraClass} ${isSelected(value) ? 'active' : ''}`">
             <input type="radio" :checked="isSelected(value) ? 'active' : ''"> &nbsp;{{capitalize(label)}}
           </button>
         </div>
@@ -97,6 +97,10 @@
         type: Boolean,
         default: false,
       },
+      extraClass: {
+        type: String,
+        default: '',
+      }
     },
   }
 </script>
@@ -113,7 +117,7 @@
     font-size: inherit;
 
     &.is-danger {
-      border-color: $red;
+      border: thin solid $red;
     }
   }
 </style>
