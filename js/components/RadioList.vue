@@ -115,9 +115,5 @@
     border: none;
     text-align: left;
     font-size: inherit;
-
-    &.is-danger {
-      border: thin solid $danger;
-    }
   }
 </style>
