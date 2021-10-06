@@ -2,7 +2,7 @@
   <div class="control">
     <div :class="inline ? 'columns' : null">
       <div :class="inline ? 'column' : null" v-for="{label, value} in defaultOptions" :key="value">
-        <button @click="clickAndGo(value)" class="box" :class="isSelected(value) ? 'active' : ''">
+        <button @click="clickAndGo(value)" class="box" :class="`${extraClass} ${isSelected(value) ? 'active' : ''}`">
           <input type="radio" :checked="isSelected(value) ? 'active' : ''"> &nbsp;{{capitalize(label)}}
         </button>
       </div>
