@@ -117,7 +117,7 @@
     font-size: inherit;
 
     &.is-danger {
-      border: thin solid $red;
+      border: thin solid avril-color('red');
     }
   }
 </style>
