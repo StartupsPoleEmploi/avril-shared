@@ -11,6 +11,6 @@
     "lodash.get": "^4.4.2",
     "lodash.sortby": "^4.7.0",
     "vue": "^2.6.11",
-    "vue2-datepicker": "^3.4.1"
+    "vue2-datepicker": "^3.10.2"
   }
 }

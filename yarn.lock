@@ -12,15 +12,15 @@ bulma@^0.9.3:
   resolved "https://registry.yarnpkg.com/bulma/-/bulma-0.9.3.tgz#ddccb7436ebe3e21bf47afe01d3c43a296b70243"
   integrity sha512-0d7GNW1PY4ud8TWxdNcP6Cc8Bu7MxcntD/RRLGWuiw/s0a9P+XlH/6QoOIrmbj6o8WWJzJYhytiu9nFjTszk1g==
 
-date-fns@^2.0.1, date-fns@^2.11.0:
+date-fns@^2.11.0:
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.11.0.tgz#ec2b44977465b9dcb370021d5e6c019b19f36d06"
   integrity sha512-8P1cDi8ebZyDxUyUprBXwidoEtiQAawYPGvpfb+Dg0G6JrQ+VozwOmm91xYC0vAv1+0VmLehEPb+isg4BGUFfA==
 
-date-format-parse@^0.2.5:
-  version "0.2.5"
-  resolved "https://registry.yarnpkg.com/date-format-parse/-/date-format-parse-0.2.5.tgz#6acd7672058e59cb34c85e0d82c04bceeac9d652"
-  integrity sha512-PzvB3p9bTxrGQbz3ZlO/kxgXzKZhMo4l0OQfPqVYjuwixHRS9yHH6cUJI9JG2Hh6iUQgh17T7w95lzQ131dS/g==
+date-format-parse@^0.2.7:
+  version "0.2.7"
+  resolved "https://registry.yarnpkg.com/date-format-parse/-/date-format-parse-0.2.7.tgz#a2f78bca857a821785b48abedd4426c65aa7b918"
+  integrity sha512-/+lyMUKoRogMuTeOVii6lUwjbVlesN9YRYLzZT/g3TEZ3uD9QnpjResujeEqUW+OSNbT7T1+SYdyEkTcRv+KDQ==
 
 debounce@^1.2.0:
   version "1.2.0"
@@ -37,13 +37,12 @@ lodash.sortby@^4.7.0:
   resolved "https://registry.yarnpkg.com/lodash.sortby/-/lodash.sortby-4.7.0.tgz#edd14c824e2cc9c1e0b0a1b42bb5210516a42438"
   integrity sha1-7dFMgk4sycHgsKG0K7UhBRakJDg=
 
-vue2-datepicker@^3.4.1:
-  version "3.4.1"
-  resolved "https://registry.yarnpkg.com/vue2-datepicker/-/vue2-datepicker-3.4.1.tgz#1a7456b44da54bbc0f43f26d0c7948faa1825766"
-  integrity sha512-gCPZAwIyPLeN1P3xDg/Oj/UyQTIqnoFFzXw+yfvmUDxL430u/rHq1/JqFSGISEhTvJJu0brgHHrop3A7VBW6rA==
+vue2-datepicker@^3.10.2:
+  version "3.10.2"
+  resolved "https://registry.yarnpkg.com/vue2-datepicker/-/vue2-datepicker-3.10.2.tgz#7e5e83f38c273764ef26db5cd48dc79e38f58198"
+  integrity sha512-9loqYDKGLLreueUhAlnW6U07XQHFlO+WdqDzGszcHwciHpBiJivrmr73Cu8RCfciBbHxUoJR8TWfoxKWLGk8YA==
   dependencies:
-    date-fns "^2.0.1"
-    date-format-parse "^0.2.5"
+    date-format-parse "^0.2.7"
 
 vue@^2.6.11:
   version "2.6.11"
