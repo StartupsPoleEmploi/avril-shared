@@ -18,7 +18,7 @@
         </div>
       </div>
     </div>
-    <div v-else :class="`autocomplete-parent ${isMissingAndRequired ? 'is-danger' : ''}`">
+    <div v-else :class="`autocomplete-parent ${withDangerClass ? 'is-danger' : ''}`">
       <Autocomplete
         auto-select
         :placeholder="placeholder"
@@ -72,12 +72,14 @@
       Autocomplete,
       CountrySelect,
     },
+    computed: {
+      withDangerClass: function() {
+        return (this.inputclass || '').indexOf('is-danger') > -1;
+      },
+    },
     data: function() {
-      console.log(this.inputclass);
-      console.log((this.inputclass || '').indexOf('is-danger') > -1);
       return {
         isAutocompleteDisabled: false,
-        isMissingAndRequired: (this.inputclass || '').indexOf('is-danger') > -1
       }
     },
     methods: {
