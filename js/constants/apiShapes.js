@@ -140,10 +140,19 @@ export default {
       }
     `
   },
+  get romes() {
+    return `
+      {
+        label
+        code
+      }
+    `
+  },
   get booklet() {
     return `
       {
         certificationName
+        certificationRomes ${this.romes}
         certifierName
         insertedAt
         updatedAt
