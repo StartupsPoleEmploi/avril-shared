@@ -37,7 +37,6 @@ const universalFetch = context => async (url, options) => {
   if (process.client) {
     return window.fetch(url, options);
   } else {
-    // const {default: fetch} = await import('@/node_modules/node-fetch/src/index.js');
     const fetch = require('node-fetch');
     const {
       env: {
