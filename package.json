@@ -6,7 +6,7 @@
   "dependencies": {
     "@trevoreyre/autocomplete-vue": "^2.1.1",
     "bulma": "^0.9.3",
-    "date-fns": "^2.11.0",
+    "date-fns": "^2.0.1",
     "debounce": "^1.2.0",
     "lodash.get": "^4.4.2",
     "lodash.sortby": "^4.7.0",
