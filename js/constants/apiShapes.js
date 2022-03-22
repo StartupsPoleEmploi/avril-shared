@@ -104,6 +104,7 @@ export default {
         telephone
         website
         isActive
+        hasMandatoryBooklet
         externalNotes
       }
     `
