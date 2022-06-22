@@ -42,6 +42,7 @@ export default {
         slug
         isActive
         certifiers ${this.certifier}
+        externalNotes
       }
     `;
   },
