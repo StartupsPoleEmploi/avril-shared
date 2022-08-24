@@ -177,6 +177,7 @@ export default {
         bookletHash
         insertedAt
         submittedAt
+        raisedAt
         isCertificationDelegateAvailable
         certification ${this.certification}
         delegate ${this.delegate}
