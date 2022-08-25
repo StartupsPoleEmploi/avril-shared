@@ -9,7 +9,7 @@
 </template>
 
 <script type="text/javascript">
-  import { parseISODate, formatISODate } from 'avril/js/utils/time';
+  import { parseISODate, formatISODate } from '../utils/time';
 
   export default {
     computed: {
