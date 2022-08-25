@@ -66,7 +66,7 @@ export default {
   ],
   plugins: [
     '~/node_modules/avril/js/plugins/filters.js',
-    { src: '~/node_modules/avril/js/plugins/datepicker', mode: 'client' },
+    '~/node_modules/avril/js/plugins/datepicker.client.js',
   ],
   sentry: {
     config: {
