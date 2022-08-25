@@ -25,7 +25,7 @@
         const newDateString = e.target.value;
         const newDate = parseISODate(newDateString);
         if (newDate) {
-          this.$emit('input', this.isStringValue ? newDateString : newDate)
+          this.$emit('input', newDate)
         }
       }
     },
