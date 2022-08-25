@@ -17,11 +17,6 @@ date-fns@^2.28.0:
   resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.29.2.tgz#0d4b3d0f3dff0f920820a070920f0d9662c51931"
   integrity sha512-0VNbwmWJDS/G3ySwFSJA3ayhbURMTJLtwM2DTxf9CWondCnh6DTNlO9JgRSq6ibf4eD0lfMJNBxUdEAHHix+bA==
 
-date-format-parse@^0.2.7:
-  version "0.2.7"
-  resolved "https://registry.yarnpkg.com/date-format-parse/-/date-format-parse-0.2.7.tgz#a2f78bca857a821785b48abedd4426c65aa7b918"
-  integrity sha512-/+lyMUKoRogMuTeOVii6lUwjbVlesN9YRYLzZT/g3TEZ3uD9QnpjResujeEqUW+OSNbT7T1+SYdyEkTcRv+KDQ==
-
 debounce@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/debounce/-/debounce-1.2.0.tgz#44a540abc0ea9943018dc0eaa95cce87f65cd131"
@@ -48,13 +43,6 @@ tr46@~0.0.3:
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/tr46/-/tr46-0.0.3.tgz#8184fd347dac9cdc185992f3a6622e14b9d9ab6a"
   integrity sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==
-
-vue2-datepicker@^3.11.0:
-  version "3.11.0"
-  resolved "https://registry.yarnpkg.com/vue2-datepicker/-/vue2-datepicker-3.11.0.tgz#a9436f94bbb7ed6dbc44f8246b75b364cc91d553"
-  integrity sha512-zbMkAjYwDTXZozZtkpSwqxq7nEeBt7zoHL+oQcdjEXAqzJHhmatE6sl6JSr58PMIx2WOK0c6QBXozSqT32iQAQ==
-  dependencies:
-    date-format-parse "^0.2.7"
 
 vue@^2.6.11:
   version "2.6.11"
