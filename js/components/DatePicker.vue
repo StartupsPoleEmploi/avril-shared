@@ -10,30 +10,35 @@
 
 <script type="text/javascript">
   import { parseISODate, formatISODate } from '../utils/time';
-
+  import {isString} from '../utils/boolean';
   export default {
     computed: {
+      isStringValue() {
+        return isString(this.value);
+      },
       dateString() {
-        return formatISODate(this.value);
+        return this.isStringValue ? this.value : formatISODate(this.value) ;
       },
     },
     methods: {
       onInput(e) {
-        const newDate = parseISODate(e.target.value);
+        const newDateString = e.target.value;
+        const newDate = parseISODate(newDateString);
         if (newDate) {
-          this.$emit('input', newDate)
+          this.$emit('input', this.isStringValue ? newDateString : newDate)
         }
       }
     },
     // TODO: forward refs
     // TODO: Add disabled Dates? :disabled-date="maxDate"
     // TODO: Add default-panel="year"
+    // TODO: Show placeholder?
     props: {
       value: {
-        type: Date,
+        type: [Date, String],
       },
       disabledDate: {
-        type: Date,
+        type: Function,
       },
       defaultPanel: {
         type: String,
