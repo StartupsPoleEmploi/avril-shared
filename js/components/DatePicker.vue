@@ -4,7 +4,7 @@
     v-bind="$attrs"
     @input="onInput"
     :value="dateString"
-    @click="$el.showPicker()"
+    @click="openCalendar"
   />
 </template>
 
@@ -27,7 +27,12 @@
         if (newDate) {
           this.$emit('input', newDate)
         }
-      }
+      },
+      openCalendar() {
+        if (this.$el.showPicker) {
+          this.$el.showPicker();
+        }
+      },
     },
     // TODO: forward refs
     // TODO: Add disabled Dates? :disabled-date="maxDate"
