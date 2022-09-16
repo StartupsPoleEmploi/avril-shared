@@ -78,4 +78,7 @@ export default {
     linkActiveClass: 'is-active-parent',
     linkExactActiveClass: 'is-active',
   },
+  serverMiddleware: [
+    '~/node_modules/avril/js/middleware/healthcheck.js',
+  ]
 }
