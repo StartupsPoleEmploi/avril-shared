@@ -36,7 +36,7 @@ const universalFetch = context => async (url, options) => {
   if (process.client) {
     return window.fetch(url, options);
   } else {
-    const fetch = require('node-fetch');
+    const fetch = await import('node-fetch');
     const {
       env: {
         serverToPhoenixUrl
