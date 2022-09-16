@@ -11,7 +11,7 @@
     "lodash.get": "^4.4.2",
     "lodash.sortby": "^4.7.0",
     "node-fetch": "^2.6.7",
-    "node-sass": "^7.0.0",
+    "sass": "^1.54.9",
     "sass-loader": "^10.3.1",
     "vue": "^2.6.11"
   }
