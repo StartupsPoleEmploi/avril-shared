@@ -3,6 +3,7 @@ import {isArray, isString, isObject} from './boolean.js';
 import {first, last, include} from './array.js';
 import {rejectBlankValues, partition} from './object.js';
 import {singularize, capitalize, startsWithNoCase, prepend} from './string.js';
+import nodeFetch from 'node-fetch';
 
 import shapes from '../constants/apiShapes.js';
 
@@ -33,12 +34,11 @@ const buildMultipartBody = (query, file) => {
 }
 
 const universalFetch = context => async (url, options) => {
+  console.log('hey!!!!')
+  console.log(nodeFetch)
   if (process.client) {
     return window.fetch(url, options);
   } else {
-    console.log('hey!!!!')
-    const fetch = await import('node-fetch');
-    console.log(fetch)
     const {
       env: {
         serverToPhoenixUrl
@@ -52,7 +52,7 @@ const universalFetch = context => async (url, options) => {
     } = context;
     url = startsWithNoCase(url, 'http') ? url : prepend(url, serverToPhoenixUrl);
     console.log(url);
-    const result = await fetch(url, {
+    const result = await nodeFetch(url, {
       ...options,
       headers: {
         ...headers,
