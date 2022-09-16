@@ -57,7 +57,6 @@ export default {
       } : null,
     ].filter(v => v)
   },
-  mode: 'universal',
   modules: [
     'nuxt-svg-loader',
     '@nuxtjs/markdownit',

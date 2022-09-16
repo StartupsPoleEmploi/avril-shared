@@ -3,6 +3,7 @@ import {isArray, isString, isObject} from './boolean.js';
 import {first, last, include} from './array.js';
 import {rejectBlankValues, partition} from './object.js';
 import {singularize, capitalize, startsWithNoCase, prepend} from './string.js';
+import nodeFetch from 'node-fetch';
 
 import shapes from '../constants/apiShapes.js';
 
@@ -36,7 +37,7 @@ const universalFetch = context => async (url, options) => {
   if (process.client) {
     return window.fetch(url, options);
   } else {
-    const fetch = await import('node-fetch');
+    const fetch = nodeFetch;
     const {
       env: {
         serverToPhoenixUrl
