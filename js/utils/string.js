@@ -1,4 +1,4 @@
-import {last} from './array';
+import {last} from './array.js';
 
 export const generateUuid = () =>  (Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15));
 

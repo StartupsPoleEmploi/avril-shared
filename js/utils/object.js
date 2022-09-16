@@ -1,5 +1,5 @@
-import {include} from './array';
-import {isObject, isBlank} from './boolean';
+import {include} from './array.js';
+import {isObject, isBlank} from './boolean.js';
 
 Object.fromEntries = l => l.reduce((a, [k,v]) => ({...a, [k]: v}), {})
 

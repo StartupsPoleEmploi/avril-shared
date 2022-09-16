@@ -1,11 +1,10 @@
 import get from 'lodash.get';
-import {isArray, isString, isObject} from './boolean';
-import {first, last, include} from './array';
-import {rejectBlankValues} from './object';
-import {singularize, capitalize, startsWithNoCase, prepend} from './string';
-import {partition} from './object';
+import {isArray, isString, isObject} from './boolean.js';
+import {first, last, include} from './array.js';
+import {rejectBlankValues, partition} from './object.js';
+import {singularize, capitalize, startsWithNoCase, prepend} from './string.js';
 
-import shapes from '../constants/apiShapes';
+import shapes from '../constants/apiShapes.js';
 
 const paramsToString = params => {
   if (!params) return '';
