@@ -1,10 +1,12 @@
+@use "sass:math";
+
 @import 'variables/index';
 
 @import '~bulma';
 @import 'components';
 
 @each $key, $value in $palette {
-  .is-#{$key} {
+  .is-#{"" + $key} {
     color: palette($key, text) !important;
     background: palette($key, background) !important;
 
@@ -18,8 +20,8 @@
 
       &:before {
         position: absolute;
-        bottom: -3 * $bubble-size / 4;
-        left: - $bubble-size / 4;
+        bottom: -3 * math.div($bubble-size, 4);
+        left: -1 * math.div($bubble-size, 4);
         width: $bubble-size;
         height: $bubble-size;
         border-radius: 100%;
