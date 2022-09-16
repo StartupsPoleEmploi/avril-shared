@@ -1,4 +1,4 @@
-import isValid from 'date-fns/isValid';
+import {isValid} from 'date-fns';
 
 export const isNumber = value => typeof value === 'number'
 export const isString = value => typeof value === 'string'

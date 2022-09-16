@@ -1,9 +1,4 @@
-import differenceInBusinessDays from 'date-fns/differenceInBusinessDays';
-import addDays from 'date-fns/addDays';
-import parseISO from 'date-fns/parseISO';
-import formatISO from 'date-fns/formatISO';
-import format from 'date-fns/format';
-import isSameDay from 'date-fns/isSameDay';
+import {differenceInBusinessDays, addDays, parseISO, formatISO, format, isSameDay} from 'date-fns';
 
 export const dateFormat = 'dd/MM/yyyy';
 export const hourFormat = 'HH\'h\'mm';
