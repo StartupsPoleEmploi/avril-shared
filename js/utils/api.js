@@ -34,8 +34,6 @@ const buildMultipartBody = (query, file) => {
 }
 
 const universalFetch = context => async (url, options) => {
-  console.log('hey!!!!')
-  console.log(nodeFetch)
   if (process.client) {
     return window.fetch(url, options);
   } else {
@@ -51,7 +49,6 @@ const universalFetch = context => async (url, options) => {
       }
     } = context;
     url = startsWithNoCase(url, 'http') ? url : prepend(url, serverToPhoenixUrl);
-    console.log(url);
     const result = await nodeFetch(url, {
       ...options,
       headers: {
