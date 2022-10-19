@@ -1,8 +1,9 @@
 import express from 'express';
 const app = express();
 
-app.get('/', (_req, res) => {
+app.get('/', (req, res) => {
   console.log('dude!!')
+  console.log(req)
   return res.sendStatus(200)
 });
 
