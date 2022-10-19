@@ -79,6 +79,6 @@ export default {
     linkExactActiveClass: 'is-active',
   },
   serverMiddleware: [
-    '~/node_modules/avril/js/middleware/healthcheck.js',
+    {handler: '~/node_modules/avril/js/middleware/healthcheck.js', prefix: false, path: '/healthcheck'},
   ]
 }
