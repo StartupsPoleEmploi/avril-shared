@@ -57,11 +57,11 @@ const universalFetch = context => async (url, options) => {
         ...get(options, 'headers', {}),
       }
     });
-    if (!context.res.headersSent){
-      (result.headers.raw()['set-cookie'] || []).filter(cookie => cookie).forEach(cookie => {
-        context.res.set('set-cookie', cookie);
-      });
-    }
+    // if (!context.res.headersSent){
+    //   (result.headers.raw()['set-cookie'] || []).filter(cookie => cookie).forEach(cookie => {
+    //     context.res.set('set-cookie', cookie);
+    //   });
+    // }
     return result;
   }
 }
