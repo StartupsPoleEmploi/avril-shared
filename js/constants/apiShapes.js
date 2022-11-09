@@ -43,6 +43,7 @@ export default {
         isActive
         certifiers ${this.certifier}
         externalNotes
+        internalNotes
       }
     `;
   },
