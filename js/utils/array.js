@@ -14,3 +14,7 @@ export const chunk = (array, perChunk) => {
 export const include = (array, elem) => {
   return array.indexOf(elem) > -1;
 }
+
+export const deduce = (array, otherArray) => {
+  return array.filter(v => !otherArray.includes(v));
+}

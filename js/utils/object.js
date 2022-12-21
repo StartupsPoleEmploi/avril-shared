@@ -1,7 +1,18 @@
 import {include} from './array.js';
 import {isObject, isBlank} from './boolean.js';
 
-Object.fromEntries = l => l.reduce((a, [k,v]) => ({...a, [k]: v}), {})
+Object.fromEntries = Object.fromEntries || l => l.reduce((a, [k,v]) => ({...a, [k]: v}), {});
+
+export const getKeysDeep = object => {
+  return Object.entries(object).flatMap(([k, v]) => {
+    if (isObject(v)) {
+      const subKeys = getKeysDeep(v);
+      return subKeys.map(k2 => `${k}.${k2}`);
+    } else {
+      return k;
+    }
+  });
+}
 
 export const exceptKeys = (object, keys) => Object.fromEntries(Object.entries(object).filter(([k, v]) => !include([].concat(keys), k)))
 
