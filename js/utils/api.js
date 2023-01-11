@@ -140,6 +140,6 @@ export const mutateApiMultipart = async ({name, type, params}, file) => {
 
 export const formatApiError = (err, introMessage) => {
   if (!isArray(get(err, 'errors'))) return;
-  const errorMessages = err?.errors?.filter(v => v)?.map(e => e.message)?.join(', ');
+  const errorMessages = err.errors.filter(v => v).map(e => e.message).join(', ');
   return [introMessage, errorMessages].filter(v => v).join(' : ');
 }
