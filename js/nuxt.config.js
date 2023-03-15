@@ -6,13 +6,13 @@ export default {
   build: {
     standalone: true,
     cssSourceMap: false,
-    postcss: {
-      preset: {
-        features: {
-          customProperties: false,
-        }
-      }
-    },
+    // postcss: {
+    //   preset: {
+    //     features: {
+    //       customProperties: false,
+    //     }
+    //   }
+    // },
     loaders: {
       scss: { sourceMap: false },
     },
