@@ -3,18 +3,18 @@
     <div v-if="isAutocompleteDisabled">
       <div class="columns" v-if="type === 'address'">
         <div class="column is-12">
-          <input :class="inputclass" type="text" name="street" placeholder="Adresse" :value="(value || {}).street" @input="manualEdit" />
+          <input :class="inputclass" type="text" name="street" placeholder="Adresse" :value="value?.street" @input="manualEdit" />
         </div>
       </div>
       <div class="columns">
         <div class="column is-4" v-if="type === 'address'">
-          <input :class="inputclass" type="text" name="postalCode" placeholder="Code postal" :value="(value || {}).postalCode" @input="manualEdit" />
+          <input :class="inputclass" type="text" name="postalCode" placeholder="Code postal" :value="value?.postalCode" @input="manualEdit" />
         </div>
         <div class="column" :class="type === 'address' ? 'is-4' : 'is-6'">
-          <input :class="inputclass" type="text" name="city" placeholder="Ville" :value="(value || {}).city" @input="manualEdit" />
+          <input :class="inputclass" type="text" name="city" placeholder="Ville" :value="value?.city" @input="manualEdit" />
         </div>
         <div class="column" :class="type === 'address' ? 'is-4' : 'is-6'">
-          <CountrySelect placeholder="Pays" name="country" :value="value" :input="manualEdit" />
+          <CountrySelect placeholder="Pays" name="country" :value="value?.country" :input="manualEdit" />
         </div>
       </div>
     </div>
@@ -42,19 +42,19 @@
         >
           <div v-bind="rootProps">
             <input
-              :value="value"
+              :value="value?.street"
               v-bind="inputProps"
               v-on="inputListeners"
               :class="[
                 'autocomplete-input',
-                { 'autocomplete-input-no-results': value && results.length === 0 },
+                { 'autocomplete-input-no-results': value?.street && results.length === 0 },
                 { 'autocomplete-input-focused': isFocused }
               ]"
               @focus="isFocused = true"
               @blur="isFocused = false"
             />
             <ul
-              v-if="value && results.length === 0"
+              v-if="value?.street && results.length === 0"
               class="autocomplete-result-list"
               style="position: absolute; z-index: 1; width: 100%; top: 100%;"
             >
