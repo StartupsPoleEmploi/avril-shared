@@ -29,10 +29,49 @@
         :default-value="addressLabelify(value)"
         :debounceTime="300"
       >
-        <template v-slot:result="{ result, props }">
-          <li v-bind="props" class="autocomplete-result">
-            <span v-html="getHtmlResultValue(result)"></span>
-          </li>
+        <template
+          #default="{
+            rootProps,
+            inputProps,
+            inputListeners,
+            resultListProps,
+            resultListListeners,
+            results,
+            resultProps
+          }"
+        >
+          <div v-bind="rootProps">
+            <input
+              v-bind="inputProps"
+              v-on="inputListeners"
+              :class="[
+                'autocomplete-input',
+                { 'autocomplete-input-no-results': noResults },
+                { 'autocomplete-input-focused': isFocused }
+              ]"
+              @focus="isFocused = true"
+              @blur="isFocused = false"
+            />
+            <ul
+              v-if="noResults"
+              class="autocomplete-result-list"
+              style="position: absolute; z-index: 1; width: 100%; top: 100%;"
+            >
+              <li class="autocomplete-result">
+                Aucun resultat
+              </li>
+            </ul>
+            <ul v-bind="resultListProps" v-on="resultListListeners" class="autocomplete-result-list">
+              <li
+                v-for="(result, index) in results"
+                :key="resultProps[index].id"
+                v-bind="resultProps[index]"
+                class="autocomplete-result"
+              >
+                <span v-html="getHtmlResultValue(result)"></span>
+              </li>
+            </ul>
+          </div>
         </template>
       </Autocomplete>
     </div>
@@ -76,9 +115,13 @@
       withDangerClass: function() {
         return (this.inputclass || '').indexOf('is-danger') > -1;
       },
+      noResults() {
+        return this.value && this.results.length === 0;
+      }
     },
     data: function() {
       return {
+        isFocused: false,
         isAutocompleteDisabled: false,
       }
     },
