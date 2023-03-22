@@ -42,18 +42,19 @@
         >
           <div v-bind="rootProps">
             <input
+              :value="value"
               v-bind="inputProps"
               v-on="inputListeners"
               :class="[
                 'autocomplete-input',
-                { 'autocomplete-input-no-results': noResults },
+                { 'autocomplete-input-no-results': value && results.length === 0 },
                 { 'autocomplete-input-focused': isFocused }
               ]"
               @focus="isFocused = true"
               @blur="isFocused = false"
             />
             <ul
-              v-if="noResults"
+              v-if="value && results.length === 0"
               class="autocomplete-result-list"
               style="position: absolute; z-index: 1; width: 100%; top: 100%;"
             >
@@ -115,9 +116,6 @@
       withDangerClass: function() {
         return (this.inputclass || '').indexOf('is-danger') > -1;
       },
-      noResults() {
-        return this.value && this.results.length === 0;
-      }
     },
     data: function() {
       return {
