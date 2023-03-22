@@ -42,7 +42,6 @@
         >
           <div v-bind="rootProps">
             <input
-              :value="value?.street"
               v-bind="inputProps"
               v-on="inputListeners"
               :class="[
