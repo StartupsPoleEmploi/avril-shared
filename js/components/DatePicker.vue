@@ -10,20 +10,21 @@
 
 <script type="text/javascript">
   import { parseISODate, formatISODate } from '../utils/time';
-  import {isString} from '../utils/boolean';
+  import {isString, isDate} from '../utils/boolean';
   export default {
     computed: {
-      isStringValue() {
-        return isString(this.value);
-      },
       dateString() {
-        return this.isStringValue ? this.value : formatISODate(this.value) ;
+        try {
+          return isDate(this.value) ? formatISODate(this.value) : `${this.value}` ;
+        } catch(err) {
+          console.error(err);
+          return '';
+        }
       },
     },
     methods: {
       onInput(e) {
-        const newDateString = e.target.value;
-        const newDate = parseISODate(newDateString);
+        const newDate = parseISODate(e.target.value);
         if (newDate) {
           this.$emit('input', newDate)
         }
