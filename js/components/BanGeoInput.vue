@@ -54,7 +54,7 @@
               @blur="isFocused = false"
             />
             <ul
-              v-if="value?.street && results.length === 0"
+              v-if="isFocused && !isLoading && value?.street?.length && results.length === 0"
               class="autocomplete-result-list"
               style="position: absolute; z-index: 1; width: 100%; top: 100%;"
             >
@@ -120,6 +120,7 @@
     data: function() {
       return {
         isFocused: false,
+        isLoading: false,
         isAutocompleteDisabled: false,
       }
     },
@@ -147,15 +148,23 @@
         this.isAutocompleteDisabled = value;
       },
       search: async function(input) {
-        if (input && input.replace(/[/s]/g, '').length >= 3) {
-          const banFilter = geoTypeToBanType(this.type);
-          const results = await fetch(`https://api-adresse.data.gouv.fr/search/?q=${input}&${banFilter ? ('type='+banFilter) : ''}`)
-          const data = await results.json();
-          return data.features
-            .map(result => banToAddress(this.type, result))
-            .filter(r => r);
-        } else {
+        try {
+          if (input && input.replace(/[/s]/g, '').length >= 3) {
+            this.isLoading = true;
+            const banFilter = geoTypeToBanType(this.type);
+            const results = await fetch(`https://api-adresse.data.gouv.fr/search/?q=${input}&${banFilter ? ('type='+banFilter) : ''}`)
+            const data = await results.json();
+            return data.features
+              .map(result => banToAddress(this.type, result))
+              .filter(r => r);
+          } else {
+            return [];
+          }
+        } catch(err) {
+          console.error(err);
           return [];
+        } finally {
+          this.isLoading = false;
         }
       },
       addressLabelify,
