@@ -153,6 +153,7 @@
             const banFilter = geoTypeToBanType(this.type);
             const results = await fetch(`https://api-adresse.data.gouv.fr/search/?q=${input}&${banFilter ? ('type='+banFilter) : ''}`)
             const data = await results.json();
+            this.isLoading = false;
             return data.features
               .map(result => banToAddress(this.type, result))
               .filter(r => r);
@@ -161,9 +162,9 @@
           }
         } catch(err) {
           console.error(err);
-          return [];
         } finally {
           this.isLoading = false;
+          return [];
         }
       },
       addressLabelify,
