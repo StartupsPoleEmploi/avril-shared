@@ -24,7 +24,7 @@
     },
     methods: {
       onInput(e) {
-        const newDate = parseISODate(e.target.value);
+        const newDate = parseISODate(e.target.value.replace(/\./g, '-'));
         if (newDate) {
           this.$emit('input', newDate)
         }
