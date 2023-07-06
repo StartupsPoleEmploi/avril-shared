@@ -42,3 +42,14 @@
     }
   }
 }
+
+.has-background-white {
+  background: $white !important;
+}
+
+.notification {
+  &.is-outlined {
+    background: inherit;
+    border: thin solid $primary;
+  }
+}
