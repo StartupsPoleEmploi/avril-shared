@@ -148,7 +148,6 @@
       },
       search: async function(input) {
         try {
-          console.log({input})
           if (input && input.replace(/[/s]/g, '').length >= 3) {
             this.isLoading = true;
             const banFilter = geoTypeToBanType(this.type);

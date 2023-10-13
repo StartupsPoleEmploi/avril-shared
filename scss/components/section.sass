@@ -38,6 +38,8 @@ $section-padding-large: $section-padding-large-horizontal $section-padding-large
       padding: 0 $section-padding-medium-horizontal
   &.is-large
     padding: $section-padding-large
+    @media print
+      padding $section-padding-medium
     &.is-vertical
       padding: $section-padding-large-vertical 0
     &.is-horizontal
